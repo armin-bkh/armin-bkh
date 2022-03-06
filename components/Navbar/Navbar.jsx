@@ -33,7 +33,7 @@ const Navbar = () => {
       <nav
         className={`transition-all fixed top-0 bottom-0 w-5/12 md:w-auto ${
           isShow ? "right-0" : "-right-full"
-        } flex items-center justify-center bg-slate-600 md:bg-transparent md:relative`}
+        } flex items-center justify-center bg-slate-600 md:bg-transparent md:static`}
       >
         <ul className="flex  flex-col md:flex-row md:items-center">
           {links.map((link) => (
