@@ -1,12 +1,21 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { GoHome } from "react-icons/go";
+import { GiSkills } from "react-icons/gi";
+import { BsJournalCode } from "react-icons/bs";
+import { MdConnectWithoutContact } from "react-icons/md";
 
 const links = [
-  { id: 1, title: "home", href: "/" },
-  { id: 2, title: "skills", href: "/skills" },
-  { id: 3, title: "projects", href: "/projects" },
-  { id: 4, title: "contact", href: "/contact" },
+  { id: 1, title: "home", icon: <GoHome className="mr-1"/>, href: "/" },
+  { id: 2, title: "skills", icon: <GiSkills className="mr-1"/>, href: "/skills" },
+  { id: 3, title: "projects", icon: <BsJournalCode className="mr-1"/>, href: "/projects" },
+  {
+    id: 4,
+    title: "contact us",
+    icon: <MdConnectWithoutContact className="mr-1"/>,
+    href: "/contact",
+  },
 ];
 
 const Navbar = () => {
@@ -31,11 +40,12 @@ const Navbar = () => {
             <li key={link.id}>
               <Link href={link.href}>
                 <a
-                  className={`px-5 py-2 text-xl md:text-lg rounded-sm capitalize hover:text-emerald-500 transition ${
+                  className={`flex items-center px-5 py-2 text-xl md:text-base rounded-sm capitalize hover:text-emerald-500 transition ${
                     router.pathname === link.href &&
                     "text-emerald-500 bg-slate-600"
                   }`}
                 >
+                  {link.icon}
                   {link.title}
                 </a>
               </Link>
