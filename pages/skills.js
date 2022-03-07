@@ -12,6 +12,7 @@ import {
   SiNextdotjs,
   SiTypescript,
   SiNpm,
+  SiStyledcomponents,
 } from "react-icons/si";
 import { ImGit } from "react-icons/im";
 import { AiOutlineApi } from "react-icons/ai";
@@ -128,7 +129,14 @@ const skills = [
     icon: AiOutlineApi,
     title: "Call the server and working with API",
     description:
-      "Call the server with all the type of APIs to send request, analyze response and handle all errors in the efficient way to display on the client-side. ",
+      "Call the server with all the type of APIs to send request, analyze response and handle all errors in the efficient way to display on the client-side.",
+  },
+  {
+    id: 17,
+    icon: SiStyledcomponents,
+    title: "Styled-components",
+    description:
+      "styled-components allow us to write css in js and pass prop to elements and deal with them as components",
   },
 ];
 
@@ -136,7 +144,7 @@ const SkillsPage = () => {
   return (
     <main className="min-h-smHeight md:min-h-mdHeight p-5 main">
       <h1 className="text-center text-4xl md:text-5xl mb-5">
-        Skills and details
+        My skills and details
       </h1>
       <ul className="grid grid-cols-1 md:grid-cols-2 gap-5">
         {skills.map((skill) => (

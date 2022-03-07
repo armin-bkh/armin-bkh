@@ -2,7 +2,7 @@ import { BsDot } from "react-icons/bs";
 
 const SkillItem = ({ skill, Icon }) => {
   return (
-    <li className="flex flex-col justify-start p-2 shadow-md">
+    <li className="flex flex-col justify-start p-2 shadow-md md:last:col-span-2">
       <h4 className="text-emerald-500 font-medium text-2xl md:text-3xl mb-2 flex items-center">
         {Icon && <Icon className="mr-2 text-lg text-gray-200" />}
         {skill.title}
