@@ -4,7 +4,12 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    minHeight: {
+      'smHeight': '87vh',
+      'mdHeight': '88vh',
+    },
+    extend: {
+    },
   },
   plugins: [],
 };

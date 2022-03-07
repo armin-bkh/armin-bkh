@@ -1,8 +1,14 @@
 @tailwind base;
 @tailwind components;
-@layer components{
-  body{
-    @apply bg-[#303740] text-gray-300
+@layer components {
+  body {
+    @apply bg-[#303740] text-gray-300;
   }
 }
 @tailwind utilities;
+
+.main {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}

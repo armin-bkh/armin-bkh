@@ -18,7 +18,7 @@ const socialMedia = [
 
 export default function Home() {
   return (
-    <main className="flex flex-col md:flex-row p-5 min-h-[87vh] md:min-h-[88vh]">
+    <main className="flex flex-col md:flex-row p-5 min-h-smHeight md:min-h-mdHeight main">
       <div className="flex flex-col justify-start items-center relative">
         <h1 className="absolute w-24 -top-8 md:left-10 md:-top-12 sm:text-9xl left-5 self-start text-7xl uppercase">
           hi there
@@ -58,7 +58,11 @@ export default function Home() {
             ))}
           </ul>
         </nav>
-        <a className="bg-emerald-500 text-sm md:text-base text-gray-700 py-2 px-10 rounded-md">
+        <a
+          href="../docs/resume.pdf"
+          download
+          className="bg-emerald-500 text-sm md:text-base text-gray-700 py-2 px-10 rounded-md"
+        >
           download my resume
         </a>
       </div>
