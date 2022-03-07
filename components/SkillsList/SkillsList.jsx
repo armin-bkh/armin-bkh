@@ -42,7 +42,7 @@ const skills = [
   {
     id: 4,
     icon: SiJavascript,
-    title: "JavaScript",
+    title: "JavaScript (e6)",
     description:
       "Of course, to create a dynamic application, we need JavaScript to be able to create a complete application that can be used.",
   },
@@ -81,7 +81,7 @@ const skills = [
     icon: SiRedux,
     title: "Redux",
     description:
-      "Sometimes in large applications that have a lot of global data, we can use Redعx and its related tools to better manage them.",
+      "Sometimes in large applications that have a lot of global data, we can use Redux and its related tools to better manage them.",
   },
   {
     id: 10,
