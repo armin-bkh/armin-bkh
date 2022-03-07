@@ -58,11 +58,7 @@ export default function Home() {
             ))}
           </ul>
         </nav>
-        <a
-          href="../docs/resume.pdf"
-          download
-          className="bg-emerald-500 text-sm md:text-base text-gray-700 py-2 px-10 rounded-md"
-        >
+        <a className="cursor-pointer bg-emerald-500 text-sm md:text-base text-gray-700 py-2 px-10 rounded-md transition hover:shadow-lg hover:shadow-emerald-500/40">
           download my resume
         </a>
       </div>
