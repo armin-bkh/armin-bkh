@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { GoHome } from "react-icons/go";
 import { GiSkills } from "react-icons/gi";
 import { BsJournalCode } from "react-icons/bs";
@@ -31,9 +31,27 @@ const links = [
 const Navbar = () => {
   const [isShow, setIsShow] = useState(false);
   const router = useRouter();
+  const navRef = useRef();
+
+  useEffect(() => {
+    function handleCloseNav(e) {
+      if (
+        navRef.current &&
+        !navRef.current.contains(e.target) &&
+        e.target.id !== "ham-menu"
+      ) {
+        setIsShow(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleCloseNav);
+    return () => {
+      document.removeEventListener("mousedown", handleCloseNav);
+    };
+  }, [navRef]);
 
   return (
-    <header className="flex items-center justify-between px-3 py-5">
+    <header className="flex items-center justify-between px-3 py-5 relative">
       <Link href="/">
         <a className="cursor-pointer text-3xl">
           ARMIN<span className="text-gray-500">-</span>
@@ -41,13 +59,14 @@ const Navbar = () => {
         </a>
       </Link>
       <nav
-        className={`z-50 transition-all fixed top-0 bottom-0 w-5/12 md:w-auto ${
+        ref={navRef}
+        className={`z-10 transition-all fixed top-0 bottom-0 w-5/12 md:w-auto ${
           isShow ? "right-0" : "-right-full"
         } flex items-center justify-center bg-slate-600 md:bg-transparent md:static`}
       >
         <ul className="flex flex-col md:flex-row md:items-center">
           {links.map((link) => (
-            <li key={link.id}>
+            <li onClick={() => setIsShow(false)} key={link.id}>
               <Link href={link.href}>
                 <a
                   className={`flex items-center px-5 py-2 text-base md:text-base rounded-sm capitalize hover:text-emerald-500 transition ${
@@ -64,20 +83,26 @@ const Navbar = () => {
         </ul>
       </nav>
       <button
-        className="md:hidden z-50"
-        onClick={() => setIsShow((prevIsShow) => !prevIsShow)}
+        id="ham-menu"
+        className="md:hidden h-10 z-50"
+        onClick={() => {
+          setIsShow((prevIsShow) => !prevIsShow);
+        }}
       >
         <div
+          id="ham-menu"
           className={`h-1.5 w-8 rounded-sm transition-all ${
             isShow ? "bg-gray-800 transform rotate-45" : "bg-slate-600"
           }`}
         ></div>
         <div
+          id="ham-menu"
           className={`h-1.5 w-8 rounded-sm transition-all ${
             isShow ? "hidden" : "bg-slate-600"
           } my-1`}
         ></div>
         <div
+          id="ham-menu"
           className={`h-1.5 w-8 rounded-sm transition-all ${
             isShow ? "bg-gray-800 transform -rotate-45 -mt-1.5" : "bg-slate-600"
           }`}
