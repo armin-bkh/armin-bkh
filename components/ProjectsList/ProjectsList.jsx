@@ -1,4 +1,4 @@
-import Image from "next/image";
+import ProjectItem from "components/ProjectItem/ProjectItem";
 
 const projects = [
   {
@@ -120,29 +120,7 @@ const ProjectsList = () => {
   return (
     <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
       {projects.map((project) => (
-        <article className="p-1 shadow-lg rounded-md">
-          <div className="w-full h-[12rem] sm:h-[17rem] md:[15rem] relative overflow-hidden rounded-md mb-5">
-            <Image src={project.img} layout="fill" />
-          </div>
-          <div className="p-2">
-            <h3 className="text-emerald-500 text">{project.title}</h3>
-            <ul className="flex flex-wrap whitespace-nowrap text-xs text-gray-500 mt-2">
-              {project.tools.map((tool, index) => (
-                <li className="px-2" key={index}>
-                  <p>{tool}</p>
-                </li>
-              ))}
-            </ul>
-            <div className="flex items-center justify-between text-sm mt-6">
-              <a className="bg-black/80 shadow shadow-black/50 rounded-sm px-5 py-1">
-                Github
-              </a>
-              <a className="bg-emerald-500 shadow shadow-emerald-500/50 rounded-sm px-5 py-1">
-                show project
-              </a>
-            </div>
-          </div>
-        </article>
+        <ProjectItem key={project} project={project} />
       ))}
     </section>
   );
