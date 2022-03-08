@@ -16,11 +16,11 @@ const AboutPage = () => {
     <main className="p-5 min-h-smHeight md:min-h-mdHeight main">
       <section className="mb-20">
         <article className="leading-8 text-justify text-sm clear-both">
-          <h1 className="text-xl md:text-3xl">
+          <h1 className="text-2xl md:text-3xl">
             My name is <span className="text-emerald-500">Armin Bakhshi</span>{" "}
             from Iran.
           </h1>
-          <div className="float-right">
+          <div className="flex justify-center md:float-right">
             <Image
               className="drop-shadow-lg"
               src="/svg/me-char.svg"
