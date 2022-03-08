@@ -5,7 +5,7 @@ const ProjectItem = ({ project }) => {
     <article className="p-1 shadow-md transition hover:shadow-2xl rounded-md">
       <div
         onClick={() => window.open(project.url, "_blank")}
-        className="w-full h-[12rem] sm:h-[17rem] md:[15rem] relative overflow-hidden rounded-md mb-5 cursor-pointer"
+        className="w-full h-[12rem] sm:h-[17rem] md:h-[14rem] relative overflow-hidden rounded-md mb-5 cursor-pointer"
       >
         <Image src={project.img} alt={project.title} layout="fill" />
       </div>

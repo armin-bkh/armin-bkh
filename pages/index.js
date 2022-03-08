@@ -20,10 +20,16 @@ export default function Home() {
   return (
     <main className="flex flex-col md:flex-row p-5 min-h-smHeight md:min-h-mdHeight main">
       <div className="flex flex-col justify-start items-center relative">
-        <h1 className="absolute w-24 -top-8 md:left-10 md:-top-12 sm:text-9xl left-5 self-start text-7xl uppercase">
+        <h1
+          className="absolute w-24 -top-8 md:left-10 md:-top-12 sm:text-9xl left-5 self-start
+          text-7xl uppercase"
+        >
           hi there
         </h1>
-        <span className="absolute top-0 left-28 sm:left-36 sm:top-5 sm:text-lg md:top-4 md:left-52 md:text-2xl text-emerald-500">
+        <span
+          className="absolute top-0 left-28 sm:left-36 sm:top-5 sm:text-lg md:top-4
+          md:left-52 md:text-2xl text-emerald-500"
+        >
           My name is Armin
         </span>
         <Image
@@ -58,7 +64,10 @@ export default function Home() {
             ))}
           </ul>
         </nav>
-        <a className="cursor-pointer bg-emerald-500 text-sm md:text-base text-gray-700 py-2 px-10 rounded-md transition hover:shadow-lg hover:shadow-emerald-500/40">
+        <a
+          className="cursor-pointer bg-emerald-500 text-sm md:text-base text-gray-700
+          py-2 px-10 rounded-md transition shadow-lg shadow-emerald-500/40"
+        >
           download my resume
         </a>
       </div>

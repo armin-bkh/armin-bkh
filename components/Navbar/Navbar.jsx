@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { GoHome } from "react-icons/go";
 import { GiSkills } from "react-icons/gi";
 import { BsJournalCode } from "react-icons/bs";
+import { RiUser2Fill } from "react-icons/ri";
 import { MdConnectWithoutContact } from "react-icons/md";
 
 const links = [
@@ -22,6 +23,12 @@ const links = [
   },
   {
     id: 4,
+    title: "about",
+    icon: <RiUser2Fill className="mr-1" />,
+    href: "/about",
+  },
+  {
+    id: 5,
     title: "contact",
     icon: <MdConnectWithoutContact className="mr-1" />,
     href: "/contact",
