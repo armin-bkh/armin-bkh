@@ -115,7 +115,7 @@ const skills = [
     icon: SiTypescript,
     title: "TypeScript",
     description:
-      "some times in the large applications we need manage variable types for better and cleaner coding and for the easily debugging",
+      "TypeScript language is a superset for JavaScript. some times in the large applications we need manage variable types for better and cleaner coding and for the easily debugging",
   },
   {
     id: 15,
