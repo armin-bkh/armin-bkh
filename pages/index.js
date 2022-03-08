@@ -39,6 +39,7 @@ export default function Home() {
           alt="hi there its me"
           width={500}
           height={500}
+          priority
         />
       </div>
       <div className="mt-10 md:mt-0 flex flex-col justify-center items-center flex-1">

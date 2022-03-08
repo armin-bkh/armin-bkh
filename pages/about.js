@@ -24,6 +24,7 @@ const AboutPage = () => {
               height={290}
               draggable={false}
               alt="about me"
+              priority
             />
           </div>
           <h1 className="text-3xl">
@@ -59,7 +60,7 @@ const AboutPage = () => {
           </p>
         </article>
       </section>
-      {/* <h1 className="text-center text-3xl md:text-5xl mb-5">
+      <h1 className="text-center text-3xl md:text-5xl mb-5">
         My favorite movies
       </h1>
       <section className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-20">
@@ -74,7 +75,7 @@ const AboutPage = () => {
           </figure>
         ))}
       </section>
-      <h1 className="text-center text-3xl md:text-5xl mb-5">
+      {/* <h1 className="text-center text-3xl md:text-5xl mb-5">
         My favorite books
       </h1> */}
     </main>
