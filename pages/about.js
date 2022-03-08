@@ -23,6 +23,7 @@ const AboutPage = () => {
               width={290}
               height={290}
               draggable={false}
+              alt="about me"
             />
           </div>
           <h1 className="text-3xl">
@@ -53,8 +54,8 @@ const AboutPage = () => {
             things.
           </p>
           <p>
-            Especially in teamwork where we all use and learn from each other's
-            knowledge.
+            Especially in teamwork where we all use and learn from each
+            other&apos;s knowledge.
           </p>
         </article>
       </section>
