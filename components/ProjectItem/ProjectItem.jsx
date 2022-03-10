@@ -29,7 +29,7 @@ const ProjectItem = ({ project }) => {
             href={project.github}
             target="_blank"
             rel="noreferrer"
-            className="bg-black/80 shadow shadow-black/50 rounded-sm px-5 py-1"
+            className="bg-black/80 shadow-md shadow-black/50 rounded-sm px-5 py-1"
           >
             Github
           </a>
@@ -37,7 +37,7 @@ const ProjectItem = ({ project }) => {
             href={project.url}
             target="_blank"
             rel="noreferrer"
-            className="bg-emerald-500 shadow shadow-emerald-500/50 rounded-sm px-5 py-1"
+            className="bg-emerald-500 text-gray-700 shadow-md shadow-emerald-500/50 rounded-sm px-5 py-1"
           >
             show project
           </a>
