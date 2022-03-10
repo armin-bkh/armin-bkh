@@ -67,16 +67,16 @@ const Navbar = () => {
       </Link>
       <nav
         ref={navRef}
-        className={`z-10 transition-all fixed top-0 bottom-0 w-5/12 md:w-auto ${
+        className={`z-10 transition-all fixed top-0 bottom-0 w-5/12 lg:w-auto ${
           isShow ? "right-0" : "-right-full"
-        } flex items-center justify-center bg-slate-600 md:bg-transparent md:static`}
+        } flex items-center justify-center bg-slate-600 lg:bg-transparent lg:static`}
       >
-        <ul className="flex flex-col md:flex-row md:items-center">
+        <ul className="flex flex-col lg:flex-row lg:items-center">
           {links.map((link) => (
             <li onClick={() => setIsShow(false)} key={link.id}>
               <Link href={link.href}>
                 <a
-                  className={`flex items-center px-5 py-2 text-base md:text-base rounded-sm capitalize hover:text-emerald-500 transition ${
+                  className={`flex items-center px-5 py-2 text-base lg:text-base rounded-sm capitalize hover:text-emerald-500 transition ${
                     router.pathname === link.href &&
                     "text-emerald-500 bg-slate-600/50"
                   }`}
@@ -91,7 +91,7 @@ const Navbar = () => {
       </nav>
       <button
         id="ham-menu"
-        className="md:hidden h-10 z-50"
+        className="lg:hidden h-10 z-50"
         onClick={() => {
           setIsShow((prevIsShow) => !prevIsShow);
         }}
