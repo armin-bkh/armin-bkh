@@ -18,17 +18,17 @@ const socialMedia = [
 
 export default function Home() {
   return (
-    <main className="flex flex-col md:flex-row p-5 min-h-smHeight md:min-h-mdHeight main">
+    <main className="flex flex-col lg:flex-row p-5 min-h-smHeight md:min-h-mdHeight main">
       <div className="flex flex-col justify-start items-center relative">
         <h1
-          className="absolute w-24 -top-8 md:left-10 md:-top-12 sm:text-9xl left-5 self-start
+          className="absolute w-24 -top-8 md:left-36 lg:left-12 md:-top-12 sm:text-9xl left-5 self-start
           text-7xl uppercase"
         >
           hi there
         </h1>
         <span
           className="absolute top-0 left-28 sm:left-36 sm:top-5 sm:text-lg md:top-4
-          md:left-52 md:text-2xl text-emerald-500"
+          md:left-72 lg:left-48 md:text-2xl text-emerald-500"
         >
           My name is Armin
         </span>
@@ -42,7 +42,7 @@ export default function Home() {
           priority
         />
       </div>
-      <div className="mt-10 md:mt-0 flex flex-col justify-center items-center flex-1">
+      <div className="mt-10 lg:mt-0 flex flex-col justify-center items-center flex-1">
         <h1 className="text-2xl md:text-4xl lg:text-5xl">
           Front-End Developer
         </h1>

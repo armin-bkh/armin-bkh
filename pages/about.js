@@ -2,13 +2,21 @@ import Image from "next/image";
 import Link from "next/link";
 
 const movies = [
-  { id: 1, img: "/images/scent-of-a-woman.jpg", name: "scent of a woman" },
-  { id: 2, img: "/images/interstellar.jpg", name: "interstellar" },
-  {
-    id: 3,
-    img: "/images/the-dark-knight.jpg",
-    name: "batman: the dark knight",
-  },
+  { id: 1, name: "scent of a woman" },
+  { id: 2, name: "interstellar" },
+  { id: 3, name: "the shawshank redemption" },
+];
+
+const series = [
+  { id: 1, name: "the walking dead" },
+  { id: 2, name: "game of thrones" },
+  { id: 3, name: "stranger things" },
+];
+
+const recreation = [
+  { id: 1, name: "video game" },
+  { id: 2, name: "coding" },
+  { id: 3, name: "football" },
 ];
 
 const AboutPage = () => {
@@ -60,24 +68,41 @@ const AboutPage = () => {
           </p>
         </article>
       </section>
-      <h1 className="text-center text-3xl md:text-5xl mb-5">
-        My favorite movies
-      </h1>
-      <section className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-20">
-        {movies.map((movie) => (
-          <figure className="rounded-md" key={movie.id}>
-            <div className="relative w-full h-[450px] rounded-t-md overflow-hidden">
-              <Image src={movie.img} alt={movie.name} layout="fill" />
-            </div>
-            <figcaption className="overflow-hidden rounded-b-md shadow-md border-x border-b border-emerald-500/50 shadow-emerald-500/20 p-2 text-center text-xl uppercase">
-              {movie.name}
-            </figcaption>
-          </figure>
-        ))}
+      <h1 className="text-center text-3xl md:text-5xl mb-5">My favorites</h1>
+      <section
+        className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10`}
+      >
+        <div className="flex flex-col items-center">
+          <h5 className="mb-2 text-lg md:text-2xl text-emerald-500 capitalize">
+            movies
+          </h5>
+          <ul className="list-disc uppercase text-sm w-9/12 sm:w-4/12 md:w-8/12">
+            {movies.map((item) => (
+              <li key={item.id}>{item.name}</li>
+            ))}
+          </ul>
+        </div>
+        <div className="flex flex-col items-center">
+          <h5 className="mb-2 text-lg md:text-2xl text-emerald-500 capitalize">
+            series
+          </h5>
+          <ul className="list-disc uppercase text-sm w-9/12 sm:w-4/12 md:w-8/12">
+            {series.map((item) => (
+              <li key={item.id}>{item.name}</li>
+            ))}
+          </ul>
+        </div>
+        <div className="flex flex-col items-center">
+          <h5 className="mb-2 text-lg md:text-2xl text-emerald-500 capitalize">
+            recreation
+          </h5>
+          <ul className="list-disc uppercase text-sm w-9/12 sm:w-4/12 md:w-8/12">
+            {recreation.map((item) => (
+              <li key={item.id}>{item.name}</li>
+            ))}
+          </ul>
+        </div>
       </section>
-      {/* <h1 className="text-center text-3xl md:text-5xl mb-5">
-        My favorite books
-      </h1> */}
     </main>
   );
 };

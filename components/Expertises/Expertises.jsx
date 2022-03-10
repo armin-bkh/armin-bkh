@@ -8,11 +8,11 @@ const expertises = [
 
 const Expertises = () => {
   return (
-    <section className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5">
+    <section className="flex flex-wrap justify-center gap-5 mb-5">
       {expertises.map((item) => (
         <div
-          className="bg-gray-700 p-5 rounded-md hover:shadow-xl transition flex
-          flex-col justify-7 items-center shadow-md"
+          className="bg-gray-700 p-5 w-full md:w-4/12 lg:w-3/12 rounded-md hover:shadow-xl transition flex
+          flex-col justify-center items-center shadow-md"
           key={item.id}
         >
           <Image
