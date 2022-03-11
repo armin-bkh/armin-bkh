@@ -1,0 +1,21 @@
+.inputMessage:after {
+  content: "";
+  width: 7px;
+  height: 7px;
+  position: absolute;
+  top: 0;
+  right: -7px;
+  background: #fff;
+}
+
+.inputMessage:before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 0;
+  right: -10px;
+  z-index: 5;
+  background: #1e293b;
+  border-top-left-radius: 10px;
+}
