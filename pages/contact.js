@@ -47,6 +47,7 @@ const ContactPage = () => {
           <Image
             className="mx-auto drop-shadow-xl"
             src="/svg/contact.svg"
+            alt="contact image"
             width={420}
             height={420}
           />
