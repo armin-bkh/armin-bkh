@@ -1,4 +1,4 @@
-import EmailForm from "components/EmailForm/EmailForm";
+// import EmailForm from "components/EmailForm/EmailForm";
 import { FaGithub, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 import { AiOutlineMail } from "react-icons/ai";
 import Image from "next/image";
