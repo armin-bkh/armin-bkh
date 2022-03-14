@@ -8,8 +8,8 @@ const Input = ({ type = "text", name, lbl, formik, placeholder }) => {
       </label>
       {type === "textarea" ? (
         <textarea
-          className="text-sm px-3 py-2 rounded-sm bg-slate-800 outline-none min-h-[9rem]
-           md:min-h-[15rem] resize-none placeholder-slate-700"
+          className="text-sm px-3 py-2 rounded-sm bg-gray-700 outline-none min-h-[9rem]
+           md:min-h-[15rem] resize-none placeholder-gray-500"
           id={name}
           name={name}
           placeholder={placeholder || null}
@@ -17,7 +17,7 @@ const Input = ({ type = "text", name, lbl, formik, placeholder }) => {
         ></textarea>
       ) : (
         <input
-          className="text-sm px-3 py-2 rounded-sm bg-slate-800 outline-none placeholder-slate-700"
+          className="text-sm px-3 py-2 rounded-sm bg-gray-700 outline-none placeholder-gray-500"
           type={type}
           id={name}
           name={name}

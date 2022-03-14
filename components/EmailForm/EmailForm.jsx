@@ -1,6 +1,10 @@
+import { useRef } from "react";
 import { useFormik } from "formik";
 import Input from "./Input/Input";
 import * as Yup from "yup";
+import emailjs from "@emailjs/browser";
+import { init } from "@emailjs/browser";
+init("0rRNrw_P-NTtS9z-f");
 
 const initialValues = {
   name: "",
@@ -18,22 +22,36 @@ const validationSchema = Yup.object({
     .required("message is required"),
 });
 
-const onSubmit = (values) => {
-  console.log(values);
-};
+const SERVICEID = "service_u5q6wmc";
+const TEMPLATEID = "template_8u2j79e";
+const USERID = "0rRNrw_P-NTtS9z-f";
 
 const EmailForm = () => {
+  const formRef = useRef();
   const formik = useFormik({
     initialValues,
-    onSubmit,
+    onSubmit: (values) => console.log(values),
     validateOnMount: true,
     validationSchema,
   });
 
+  const submitHandler = (e) => {
+    e.preventDefault();
+    emailjs.sendForm(SERVICEID, TEMPLATEID, formRef.current, USERID).then(
+      (result) => {
+        console.log(result.text);
+      },
+      (error) => {
+        console.log(error.text);
+      }
+    );
+    e.target.reset();
+  };
+
   return (
     <section>
       <h1 className="text-center text-3xl md:text-5xl mb-5">Send email</h1>
-      <form onSubmit={formik.handleSubmit}>
+      <form ref={formRef} onSubmit={submitHandler}>
         <div className="flex flex-col md:flex-row gap-5 mb-5">
           <Input
             name="name"
