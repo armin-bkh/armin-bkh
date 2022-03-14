@@ -41,7 +41,6 @@ const ContactPage = () => {
                   href={link.href}
                   target="_blank"
                   rel="noreferrer"
-                  draggable={false}
                 >
                   {link.icon}
                 </a>
@@ -53,6 +52,7 @@ const ContactPage = () => {
               className="mx-auto drop-shadow-xl"
               src="/svg/contact.svg"
               alt="contact image"
+              draggable={false}
               width={420}
               height={420}
             />
