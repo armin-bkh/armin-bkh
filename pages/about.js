@@ -45,7 +45,7 @@ const AboutPage = () => {
               />
             </div>
             <p>
-              I am eighteen years old, born in 2004 May 30, sunday - 2004-5-30
+              I am eighteen years old, born in 2004 May 30, sunday - 5/30/2004
               (solar: 1383/3/10).
             </p>
             <p>I live in Tehran.</p>
