@@ -71,8 +71,10 @@ export default function Home() {
             </ul>
           </nav>
           <a
+            href="/docs/armin bakhshi resume.pdf"
             className="cursor-pointer bg-emerald-500 text-sm md:text-base text-gray-700
-          py-2 px-10 rounded-md transition shadow-lg shadow-emerald-500/40"
+            py-2 px-10 rounded-md transition shadow-lg shadow-emerald-500/40"
+            download
           >
             download my resume
           </a>
