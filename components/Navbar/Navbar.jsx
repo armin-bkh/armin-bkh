@@ -58,7 +58,7 @@ const Navbar = () => {
   }, [navRef]);
 
   return (
-    <header className="flex items-center justify-between px-3 py-5 relative">
+    <header className="flex items-center justify-between px-3 py-5 sticky top-0 bg-[#303740] z-10 shadow">
       <Link href="/">
         <a className="cursor-pointer text-3xl">
           ARMIN<span className="text-gray-500">-</span>
