@@ -5,11 +5,10 @@ module.exports = {
   ],
   theme: {
     minHeight: {
-      'smHeight': '87vh',
-      'mdHeight': '88vh',
+      smHeight: "86vh",
+      mdHeight: "87vh",
     },
-    extend: {
-    },
+    extend: {},
   },
   plugins: [],
 };
