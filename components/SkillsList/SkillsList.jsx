@@ -37,7 +37,7 @@ const skills = [
     icon: SiBootstrap,
     title: "BootStrap4",
     description:
-      "Utilizing each one of these framework to improve the efficiency of user interface styles.",
+      "Utilizing each one of these frameworks to improve the efficiency of user interface styles.",
   },
   {
     id: 4,
@@ -49,16 +49,16 @@ const skills = [
   {
     id: 5,
     icon: SiJquery,
-    title: "JQuery",
+    title: "jQuery",
     description:
-      "It is one of the oldest and most widely used JavaScript libraries",
+      "It is one of the oldest and most widely used JavaScript libraries.",
   },
   {
     id: 6,
     icon: ImGit,
     title: "Git",
     description:
-      "Utilizing the git flow procedure including (branching, pull, push, standard commit) to better manage the project and code review. ",
+      "Utilizing the git flow procedure including (branching, pull, push, standard commit) to better manage the project and code review.",
   },
   {
     id: 7,
@@ -87,7 +87,7 @@ const skills = [
     id: 10,
     title: "Redux-toolkit",
     description:
-      "Redux toolkit is one of the Redux related tools that we use to make Redax easier to use.",
+      "Redux toolkit is one of the Redux related tools that we use to make Redux easier to use.",
   },
   {
     id: 11,
@@ -102,7 +102,7 @@ const skills = [
     icon: SiNextdotjs,
     title: "NextJs FrameWork",
     description:
-      "I use next.js in the case of projects when the SEO purposes, server-side render gets more important. ",
+      "I use next.js in the case of projects when the SEO purposes, server-side render gets more important.",
   },
   {
     id: 13,

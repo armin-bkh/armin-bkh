@@ -6,16 +6,22 @@ import Head from "next/head";
 
 const socialMedia = [
   {
+    id: 1,
     href: "https://www.github.com/armin-bkh",
-    icon: <FaGithub />,
+    icon: <FaGithub className="pr-2 text-xl" />,
+    title: "GitHub",
   },
   {
+    id: 2,
     href: "https://www.linkedin.com/in/arminbkh",
-    icon: <FaLinkedinIn />,
+    icon: <FaLinkedinIn className="pr-2 text-xl" />,
+    title: "LinkedIn",
   },
   {
+    id: 3,
     href: "https://www.instagram.com/rminbkh/",
-    icon: <FaInstagram />,
+    icon: <FaInstagram className="pr-2 text-xl" />,
+    title: "instagram",
   },
 ];
 
@@ -33,16 +39,23 @@ const ContactPage = () => {
             </li>
             {socialMedia.map((link) => (
               <li
-                className="flex-1 flex justify-center items-center text-xl md:text-3xl"
-                key={link.href}
+                className="flex-1 flex justify-center items-center text-lg"
+                key={link.id}
               >
                 <a
-                  className="cursor-pointer hover:text-emerald-500 transition"
+                  className={`cursor-pointer transition-all flex items-center rounded-md px-3 py-1 ${
+                    link.id === 1
+                      ? "bg-black"
+                      : link.id === 2
+                      ? "bg-[#0072b1]"
+                      : "bg-gradient-to-tr from-yellow-200 via-[#fb3958] to-[#458eff]"
+                  }`}
                   href={link.href}
                   target="_blank"
                   rel="noreferrer"
                 >
                   {link.icon}
+                  {link.title}
                 </a>
               </li>
             ))}
