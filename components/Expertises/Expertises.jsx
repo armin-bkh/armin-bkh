@@ -1,9 +1,10 @@
-import Image from "next/image";
+import Image from 'next/image';
 
 const expertises = [
-  { id: 1, title: "JavaScript", img: "/svg/javascript.svg" },
-  { id: 2, title: "React", img: "/svg/react.svg" },
-  { id: 3, title: "NextJs", img: "/svg/next-js.svg" },
+  { id: 1, title: 'JavaScript', img: '/svg/javascript.svg' },
+  { id: 2, title: 'React', img: '/svg/react.svg' },
+  { id: 3, title: 'NextJs', img: '/svg/next-js.svg' },
+  { id: 4, title: 'React-Native', img: '/svg/react.svg' },
 ];
 
 const Expertises = () => {
@@ -11,7 +12,7 @@ const Expertises = () => {
     <section className="flex flex-wrap justify-center gap-5 mb-5">
       {expertises.map((item) => (
         <div
-          className="bg-gray-700 p-5 w-full md:w-4/12 lg:w-3/12 rounded-md hover:shadow-xl transition flex
+          className="bg-gray-700 p-5 w-full md:w-4/12 lg:w-[23%] rounded-md hover:shadow-xl transition flex
           flex-col justify-center items-center shadow-md"
           key={item.id}
         >
