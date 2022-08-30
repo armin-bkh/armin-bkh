@@ -1,11 +1,11 @@
-import Head from "next/head";
-import Link from "next/link";
+import Head from 'next/head';
+import Link from 'next/link';
 
 const NotFound = () => {
   return (
     <>
       <Head>
-        <title>armin-bkh: 404</title>
+        <title>armin-bkh: Not-Found</title>
       </Head>
       <section className="flex flex-col justify-center items-center main p-5 min-h-[86.2vh]">
         <p className="text-sm md:text-xl">404 | page could not be find</p>
