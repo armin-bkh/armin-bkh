@@ -29,9 +29,6 @@ const AboutPage = () => {
       <main className="p-5 min-h-smHeight md:min-h-mdHeight main">
         <section className="mb-20">
           <article className="leading-8 text-justify text-sm clear-both">
-            <h1 className="text-2xl md:text-3xl">
-              My name is <span className="text-emerald-500">Armin Bakhshi</span>{' '}
-            </h1>
             <div className="flex justify-center md:float-right">
               <Image
                 className="drop-shadow-lg"
@@ -43,6 +40,9 @@ const AboutPage = () => {
                 priority
               />
             </div>
+            <h1 className="text-2xl md:text-3xl">
+              My name is <span className="text-emerald-500">Armin Bakhshi</span>{' '}
+            </h1>
             <p>I am eighteen years old, born in 2004 May 30th - 5/30/2004 (solar: 1383/3/10).</p>
             <p>
               I am a front-end developer and have been working in the basin for almost two years.
