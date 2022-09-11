@@ -2,6 +2,16 @@ import ProjectItem from 'components/ProjectItem/ProjectItem';
 
 const projects = [
   {
+    id: 11,
+    img: '/images/treejer.png',
+    title: 'Ranger Treejer',
+    url: 'https://ranger.treejer.com/',
+    github: 'https://github.com/treejer/mobile',
+    tools: ['React', 'React-Native', 'react-toastify', 'web3', 'axios', 'Magic'],
+    description:
+      'Treejer is an open source project, base on web3 technology for take of environment with planting trees and each tree has a unique NFT.',
+  },
+  {
     id: 1,
     img: '/images/todolist.jpg',
     title: 'Todo list',
@@ -93,16 +103,6 @@ const projects = [
       'react-loading-skeleton',
     ],
     description: 'please turn on vpn for this project',
-  },
-  {
-    id: 11,
-    img: '/images/treejer.png',
-    title: 'Ranger Treejer',
-    url: 'https://ranger.treejer.com/',
-    github: 'https://github.com/treejer/mobile',
-    tools: ['React', 'React-Native', 'react-toastify', 'web3', 'axios', 'Magic'],
-    description:
-      'Treejer is an open source project, base on web3 technology for take of environment with planting trees and each tree has a unique NFT.',
   },
 ];
 

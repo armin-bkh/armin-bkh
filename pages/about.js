@@ -44,7 +44,6 @@ const AboutPage = () => {
               />
             </div>
             <p>I am eighteen years old, born in 2004 May 30th - 5/30/2004 (solar: 1383/3/10).</p>
-            <p>I live in Tehran.</p>
             <p>
               I am a front-end developer and have been working in the basin for almost two years.
             </p>

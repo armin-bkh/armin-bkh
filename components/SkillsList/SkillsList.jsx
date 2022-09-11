@@ -13,6 +13,7 @@ import {
   SiTypescript,
   SiNpm,
   SiStyledcomponents,
+  SiWeb3Dotjs,
 } from 'react-icons/si';
 import { ImGit } from 'react-icons/im';
 import { AiOutlineApi } from 'react-icons/ai';
@@ -72,6 +73,13 @@ const skills = [
     title: 'React-Native',
     description:
       'Creating cross-platform mobile application using react-native (even for web) library, with reusable, maintainable and manageable Functional components.',
+  },
+  {
+    id: 19,
+    icon: SiReact,
+    title: 'React-Query',
+    description:
+        'cache fetched data, this tool will save data and do request in the background, and show the latest data unXl fetching new data.',
   },
   {
     id: 8,
@@ -144,6 +152,13 @@ const skills = [
     description:
       'styled-components allow us to write css in js and pass prop to elements and deal with them as components',
   },
+  {
+    id: 18,
+    icon: SiWeb3Dotjs,
+    title: 'WEB3',
+    description:
+        'Web 3.0 (Web3) is the third generation of the evolution of web technologies. The web, also known as the World Wide Web, is the foundational layer for how the internet is used, providing website and application services.'
+  }
 ];
 
 const SkillsList = () => {
