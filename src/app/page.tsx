@@ -9,9 +9,9 @@ export default function Home() {
   return (
     <div className="container-x">
       {/* ---------- Hero ---------- */}
-      <section className="pt-[150px] pb-10 max-md:pt-[130px]">
+      <section className="pt-37.5 pb-10 max-md:pt-32.5">
         <Reveal>
-          <div className="flex items-center gap-[18px]">
+          <div className="flex items-center gap-4.5">
             <div className="relative shrink-0">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -19,9 +19,8 @@ export default function Home() {
                 alt={profile.name}
                 width={84}
                 height={84}
-                className="h-[84px] w-[84px] rounded-full border-[3px] border-white bg-surface-2 object-cover shadow-[0_8px_24px_-8px_rgba(0,0,0,0.3)]"
+                className="h-21 w-21 rounded-full border-[3px] border-white bg-surface-2 object-cover shadow-[0_8px_24px_-8px_rgba(0,0,0,0.3)]"
               />
-              <span className="absolute right-1 bottom-1 h-5 w-5 rounded-full border-[3px] border-white bg-green-500" />
             </div>
             <span className="pill">
               <span className="relative flex h-2 w-2">
@@ -45,7 +44,7 @@ export default function Home() {
           </p>
         </Reveal>
         <Reveal delay={0.24}>
-          <p className="mt-5 max-w-[640px] text-[17px] leading-[1.65] text-muted">
+          <p className="mt-5 max-w-160 text-[17px] leading-[1.65] text-muted">
             {profile.summary}
           </p>
         </Reveal>
@@ -75,7 +74,8 @@ export default function Home() {
               Based: <b className="font-bold text-ink">{profile.location}</b>
             </span>
             <span>
-              Focus: <b className="font-bold text-ink">Web3 · CMS · E2E · B2B</b>
+              Focus:{" "}
+              <b className="font-bold text-ink">Web3 · CMS · E2E · B2B</b>
             </span>
             <span>
               Stack:{" "}
@@ -86,7 +86,7 @@ export default function Home() {
       </section>
 
       {/* ---------- Selected works ---------- */}
-      <section className="pt-[72px] pb-2" id="works">
+      <section className="pt-18 pb-2" id="works">
         <Reveal>
           <div className="mb-7 flex items-end justify-between gap-4">
             <div>
@@ -94,7 +94,7 @@ export default function Home() {
               <h2 className="text-[clamp(30px,4.5vw,46px)] leading-[1.02] font-extrabold tracking-[-0.04em]">
                 Selected works
               </h2>
-              <p className="mt-3 max-w-[560px] text-[16.5px] leading-relaxed text-muted">
+              <p className="mt-3 max-w-140 text-[16.5px] leading-relaxed text-muted">
                 A few projects across Web3, CMS, end-to-end and B2B products.
                 Each has its own detail page.
               </p>
@@ -104,7 +104,7 @@ export default function Home() {
             </Link>
           </div>
         </Reveal>
-        <div className="grid gap-[22px] md:grid-cols-2">
+        <div className="grid gap-5.5 md:grid-cols-2">
           {selected.map((p, i) => (
             <ProjectCard key={p.slug} project={p} index={i} />
           ))}
@@ -112,18 +112,18 @@ export default function Home() {
       </section>
 
       {/* ---------- Currently strip ---------- */}
-      <section className="pt-[72px] pb-2">
+      <section className="pt-18 pb-2">
         <Reveal>
           <div className="flex flex-wrap items-center justify-between gap-6 border-t border-line pt-8">
-            <div className="max-w-[560px]">
+            <div className="max-w-140">
               <div className="eyebrow">Currently</div>
               <h2 className="text-[26px] tracking-[-0.03em]">
                 Senior Frontend Developer @ Novacart
               </h2>
-              <p className="mt-3 max-w-[560px] text-[16.5px] leading-relaxed text-muted">
+              <p className="mt-3 max-w-140 text-[16.5px] leading-relaxed text-muted">
                 Leading frontend for a B2B ordering platform — design system,
-                quote-to-order flows and backend integrations. Open to new
-                roles and freelance.
+                quote-to-order flows and backend integrations. Open to new roles
+                and freelance.
               </p>
             </div>
             <div className="flex flex-wrap gap-2.5">

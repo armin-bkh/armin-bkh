@@ -10,25 +10,31 @@
   --color-line: #e1e1dd;
   --color-line-strong: #d3d3ce;
 
-  --font-sans: var(--font-geist-sans), -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Inter, Roboto, sans-serif;
+  --font-sans:
+    var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Inter, Roboto, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
 
-  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.04),
-    0 12px 32px -12px rgba(0, 0, 0, 0.12);
-  --shadow-glass: 0 8px 32px -12px rgba(0, 0, 0, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
-  --shadow-btn-dark: 0 12px 26px -12px rgba(11, 11, 12, 0.55),
+  --shadow-card:
+    0 1px 2px rgba(0, 0, 0, 0.04), 0 12px 32px -12px rgba(0, 0, 0, 0.12);
+  --shadow-glass:
+    0 8px 32px -12px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  --shadow-btn-dark:
+    0 12px 26px -12px rgba(11, 11, 12, 0.55),
     0 2px 6px -2px rgba(11, 11, 12, 0.3);
-  --shadow-btn-dark-hover: 0 18px 36px -12px rgba(11, 11, 12, 0.6),
+  --shadow-btn-dark-hover:
+    0 18px 36px -12px rgba(11, 11, 12, 0.6),
     0 4px 12px -4px rgba(11, 11, 12, 0.35);
-  --shadow-btn-gray: 0 12px 26px -14px rgba(93, 93, 89, 0.55),
+  --shadow-btn-gray:
+    0 12px 26px -14px rgba(93, 93, 89, 0.55),
     0 2px 6px -3px rgba(93, 93, 89, 0.3);
-  --shadow-btn-gray-hover: 0 18px 34px -14px rgba(93, 93, 89, 0.6),
+  --shadow-btn-gray-hover:
+    0 18px 34px -14px rgba(93, 93, 89, 0.6),
     0 4px 10px -4px rgba(93, 93, 89, 0.35);
-  --shadow-btn-light: 0 12px 26px -14px rgba(11, 11, 12, 0.3),
-    0 1px 3px rgba(11, 11, 12, 0.08);
-  --shadow-btn-light-hover: 0 18px 36px -14px rgba(11, 11, 12, 0.35),
+  --shadow-btn-light:
+    0 12px 26px -14px rgba(11, 11, 12, 0.3), 0 1px 3px rgba(11, 11, 12, 0.08);
+  --shadow-btn-light-hover:
+    0 18px 36px -14px rgba(11, 11, 12, 0.35),
     0 3px 8px -2px rgba(11, 11, 12, 0.12);
 }
 
@@ -88,7 +94,7 @@ html.lenis body {
   }
 
   .pill {
-    @apply inline-flex items-center gap-2 rounded-full border border-[#bbe7c8] bg-[#e9f9ee] px-4 py-2 text-[13px] font-semibold text-[#15803d];
+    @apply inline-flex items-center gap-2 rounded-full px-4 py-2 text-[13px] font-semibold text-[#15803d];
   }
 
   .eyebrow {
@@ -134,10 +140,8 @@ html.lenis body {
 
   /* Fading grid overlay used on project covers */
   .cover-grid {
-    background-image: linear-gradient(
-        rgba(255, 255, 255, 0.14) 1px,
-        transparent 1px
-      ),
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.14) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255, 255, 255, 0.14) 1px, transparent 1px);
     background-size: 32px 32px;
     mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);

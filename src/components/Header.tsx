@@ -26,8 +26,8 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 py-[14px]">
-      <div className="glass mx-auto flex w-[min(1120px,100%-32px)] items-center justify-between gap-3 py-[10px] pr-[10px] pl-5">
+    <header className="fixed inset-x-0 top-0 z-50 py-3.5">
+      <div className="glass mx-auto flex w-[min(1120px,100%-32px)] items-center justify-between gap-3 py-2.5 pr-2.5 pl-5">
         <Link
           href="/"
           className="flex items-center gap-2.5 text-[17px] font-extrabold tracking-[-0.03em]"
@@ -39,20 +39,20 @@ export default function Header() {
             alt={profile.name}
             width={30}
             height={30}
-            className="h-[30px] w-[30px] rounded-full object-cover shadow-[0_4px_12px_-4px_rgba(0,0,0,0.4)] ring-2 ring-white"
+            className="h-7.5 w-7.5 rounded-full object-cover shadow-[0_4px_12px_-4px_rgba(0,0,0,0.4)] ring-2 ring-white"
           />
           <span>Armin Bakhshi</span>
         </Link>
 
         <nav
           aria-label="Primary"
-          className="hidden items-center gap-1 rounded-full bg-black/[0.04] p-1 md:flex"
+          className="hidden items-center gap-1 rounded-full bg-black/4 p-1 md:flex"
         >
           {nav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className={`rounded-full px-[18px] py-2 text-sm font-semibold transition-all duration-300 ${
+              className={`rounded-full px-4.5 py-2 text-sm font-semibold transition-all duration-300 ${
                 pathname === item.href
                   ? "bg-surface text-ink shadow-[0_2px_8px_rgba(0,0,0,0.08)]"
                   : "text-muted hover:text-ink"

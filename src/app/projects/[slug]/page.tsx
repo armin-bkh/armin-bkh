@@ -22,7 +22,7 @@ export default async function ProjectDetail({
 
   return (
     <div className="container-x">
-      <div className="pt-[150px] pb-2 max-md:pt-[130px]">
+      <div className="pt-37.5 pb-2 max-md:pt-32.5">
         <Reveal>
           <Link
             href="/projects"
@@ -40,7 +40,7 @@ export default async function ProjectDetail({
             }}
           >
             <div className="cover-grid absolute inset-0" />
-            <span className="relative mb-[14px] inline-block text-[13px] font-bold tracking-[0.1em] uppercase opacity-85">
+            <span className="relative mb-3.5 inline-block text-[13px] font-bold tracking-widest uppercase opacity-85">
               {project.category} · {project.year}
             </span>
             <h1 className="relative text-[clamp(32px,5vw,56px)] leading-[1.02] font-extrabold tracking-[-0.04em]">
@@ -50,17 +50,20 @@ export default async function ProjectDetail({
               {[
                 { label: "Role", value: project.role },
                 { label: "Timeline", value: project.timeline },
-                { label: "Stack", value: project.stack.slice(0, 3).join(" · ") },
+                {
+                  label: "Stack",
+                  value: project.stack.slice(0, 3).join(" · "),
+                },
               ].map((m) => (
                 <div key={m.label}>
-                  <span className="mb-1.5 block text-[12px] tracking-[0.1em] uppercase opacity-70">
+                  <span className="mb-1.5 block text-[12px] tracking-widest uppercase opacity-70">
                     {m.label}
                   </span>
                   <b className="text-[15px]">{m.value}</b>
                 </div>
               ))}
               <div>
-                <span className="mb-1.5 block text-[12px] tracking-[0.1em] uppercase opacity-70">
+                <span className="mb-1.5 block text-[12px] tracking-widest uppercase opacity-70">
                   Links
                 </span>
                 <b className="text-[15px]">
@@ -83,7 +86,7 @@ export default async function ProjectDetail({
           </div>
         </Reveal>
 
-        <div className="mt-[22px] grid gap-[22px] md:grid-cols-[1.6fr_1fr]">
+        <div className="mt-5.5 grid gap-5.5 md:grid-cols-[1.6fr_1fr]">
           <Reveal delay={0.05}>
             <div className="py-2">
               <h2 className="mb-4 text-[22px] tracking-[-0.02em]">Overview</h2>
