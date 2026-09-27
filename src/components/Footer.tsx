@@ -27,6 +27,7 @@ export default function Footer() {
             start: "top 98%",
             end: "top 55%",
             scrub: 1,
+            invalidateOnRefresh: true,
           },
         },
       );

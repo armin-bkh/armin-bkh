@@ -50,12 +50,22 @@ export default function SmoothScroll() {
   }, []);
 
   // Back to top on page change — through Lenis (it owns the scroll
-  // position, so window.scrollTo would be overridden), then refresh triggers
+  // position, so window.scrollTo would be overridden), then refresh triggers.
+  // Multiple staggered refreshes: layout keeps settling after navigation
+  // (images loading, pinned sections adding pin-spacer), and any trigger
+  // measured too early — e.g. the footer's scrubbed giant text — would
+  // otherwise stick at the wrong progress.
   useEffect(() => {
     lenisRef.current?.scrollTo(0, { immediate: true });
     window.scrollTo(0, 0);
-    const t = setTimeout(() => ScrollTrigger.refresh(), 100);
-    return () => clearTimeout(t);
+    const t1 = window.setTimeout(() => ScrollTrigger.refresh(), 100);
+    const t2 = window.setTimeout(() => ScrollTrigger.refresh(), 700);
+    const t3 = window.setTimeout(() => ScrollTrigger.refresh(), 1600);
+    return () => {
+      window.clearTimeout(t1);
+      window.clearTimeout(t2);
+      window.clearTimeout(t3);
+    };
   }, [pathname]);
 
   return null;

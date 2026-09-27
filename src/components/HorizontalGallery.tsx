@@ -38,18 +38,30 @@ export default function HorizontalGallery({
       const getDistance = () =>
         Math.max(0, track.scrollWidth - section.clientWidth);
 
-      if (!reduceMotion && getDistance() > 0) {
+      // Always create the trigger — even if images haven't loaded yet and
+      // the distance still measures 0. Functional x/end values plus
+      // invalidateOnRefresh let later refreshes correct the measurements
+      // once screenshots arrive (this is what broke after client-side
+      // navigation: the trigger was skipped entirely and never recovered).
+      if (!reduceMotion) {
         gsap.to(track, {
           x: () => -getDistance(),
           ease: "none",
           scrollTrigger: {
             trigger: section,
             start: "-100px top",
-            end: () => `+=${getDistance()}`,
+            end: () => `+=${Math.max(1, getDistance())}`,
             pin: true,
             scrub: 1,
             anticipatePin: 1,
             invalidateOnRefresh: true,
+            // The footer lives in the root layout (never remounts), so its
+            // trigger is OLDER than this pin. Without this, global refreshes
+            // process triggers in creation order: the footer measures while
+            // this pin's spacer is still removed and keeps stale positions
+            // (giant text stuck fully risen). refreshPriority forces
+            // document-order sorting so this pin restores its spacer first.
+            refreshPriority: 1,
             onUpdate: (self) => {
               if (barRef.current) {
                 barRef.current.style.transform = `scaleX(${self.progress})`;
@@ -59,15 +71,39 @@ export default function HorizontalGallery({
         });
       }
 
-      const refresh = () => ScrollTrigger.refresh();
+      // Refresh reactively, not on timers: every screenshot that loads
+      // changes the track size (and with it the pin-spacer length and the
+      // footer position below). A ResizeObserver catches all of those —
+      // including late loads long after mount, which the old timeouts
+      // missed and which left the footer's scrubbed giant text stuck at
+      // full progress after client-side navigation.
+      let rafId = 0;
+      let alive = true;
+      const refreshSoon = () => {
+        if (rafId || !alive) return;
+        rafId = requestAnimationFrame(() => {
+          rafId = 0;
+          if (alive) ScrollTrigger.refresh();
+        });
+      };
+      const ro = new ResizeObserver(refreshSoon);
+      ro.observe(track);
+
       const imgs = Array.from(track.querySelectorAll("img"));
       imgs.forEach((img) => {
         if (img instanceof HTMLImageElement && !img.complete) {
-          img.addEventListener("load", refresh, { once: true });
+          img.addEventListener("load", refreshSoon, { once: true });
         }
       });
-      const t = window.setTimeout(refresh, 600);
-      return () => window.clearTimeout(t);
+      window.addEventListener("load", refreshSoon);
+      // One immediate pass for the already-settled case.
+      refreshSoon();
+      return () => {
+        alive = false;
+        cancelAnimationFrame(rafId);
+        ro.disconnect();
+        window.removeEventListener("load", refreshSoon);
+      };
     }, section);
 
     return () => ctx.revert();
