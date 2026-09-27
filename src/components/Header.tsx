@@ -4,7 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { nav, profile } from "@/data/portfolio";
-import { DiJsBadge } from "react-icons/di";
 
 function GithubIcon() {
   return (
@@ -27,28 +26,44 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="site-header">
-      <div className="site-header-inner">
-        <Link href="/" className="brand" onClick={() => setOpen(false)}>
-          <span className="brand-mark">
-            <DiJsBadge />
-          </span>
+    <header className="fixed inset-x-0 top-0 z-50 py-[14px]">
+      <div className="glass mx-auto flex w-[min(1120px,100%-32px)] items-center justify-between gap-3 py-[10px] pr-[10px] pl-5">
+        <Link
+          href="/"
+          className="flex items-center gap-2.5 text-[17px] font-extrabold tracking-[-0.03em]"
+          onClick={() => setOpen(false)}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={profile.avatar}
+            alt={profile.name}
+            width={30}
+            height={30}
+            className="h-[30px] w-[30px] rounded-full object-cover shadow-[0_4px_12px_-4px_rgba(0,0,0,0.4)] ring-2 ring-white"
+          />
           <span>Armin Bakhshi</span>
         </Link>
 
-        <nav className="nav-links" aria-label="Primary">
+        <nav
+          aria-label="Primary"
+          className="hidden items-center gap-1 rounded-full bg-black/[0.04] p-1 md:flex"
+        >
           {nav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className={pathname === item.href ? "active" : ""}
+              className={`rounded-full px-[18px] py-2 text-sm font-semibold transition-all duration-300 ${
+                pathname === item.href
+                  ? "bg-surface text-ink shadow-[0_2px_8px_rgba(0,0,0,0.08)]"
+                  : "text-muted hover:text-ink"
+              }`}
             >
               {item.label}
             </Link>
           ))}
         </nav>
 
-        <div className="header-actions">
+        <div className="flex items-center gap-2">
           <a
             className="icon-btn"
             href={profile.github}
@@ -71,12 +86,12 @@ export default function Header() {
             href={profile.bookingUrl}
             target="_blank"
             rel="noreferrer"
-            className="btn btn-primary btn-sm header-cta"
+            className="btn btn-primary btn-sm hidden md:inline-flex"
           >
             Book a call
           </a>
           <button
-            className="icon-btn menu-btn"
+            className="icon-btn md:hidden"
             onClick={() => setOpen((v) => !v)}
             aria-label="Toggle menu"
           >
@@ -86,13 +101,18 @@ export default function Header() {
       </div>
 
       {open && (
-        <nav className="mobile-menu" aria-label="Mobile">
+        <nav
+          aria-label="Mobile"
+          className="mx-auto mt-2 flex w-[min(1120px,100%-32px)] flex-col gap-1 rounded-[20px] border border-white/70 bg-white/80 p-3 shadow-[0_12px_32px_-12px_rgba(0,0,0,0.2)] backdrop-blur-[18px] md:hidden"
+        >
           {nav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className={pathname === item.href ? "active" : ""}
               onClick={() => setOpen(false)}
+              className={`rounded-xl px-4 py-3 text-[15px] font-semibold ${
+                pathname === item.href ? "bg-ink text-white" : ""
+              }`}
             >
               {item.label}
             </Link>

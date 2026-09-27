@@ -21,47 +21,60 @@ export default async function ProjectDetail({
   const next = projects[(idx + 1) % projects.length];
 
   return (
-    <div className="container">
-      <div className="detail-wrap">
+    <div className="container-x">
+      <div className="pt-[150px] pb-2 max-md:pt-[130px]">
         <Reveal>
-          <Link href="/projects" className="detail-back">
+          <Link
+            href="/projects"
+            className="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-muted hover:text-ink"
+          >
             ← All projects
           </Link>
         </Reveal>
 
         <Reveal delay={0.05}>
           <div
-            className="detail-hero"
+            className="relative overflow-hidden rounded-[28px] p-[clamp(28px,5vw,56px)] text-white"
             style={{
               background: `linear-gradient(135deg, hsl(${project.hue} 45% 18%) 0%, hsl(${project.hue} 55% 36%) 55%, hsl(${(project.hue + 40) % 360} 65% 48%) 100%)`,
             }}
           >
-            <div className="work-cover-grid" />
-            <span className="detail-cat">
+            <div className="cover-grid absolute inset-0" />
+            <span className="relative mb-[14px] inline-block text-[13px] font-bold tracking-[0.1em] uppercase opacity-85">
               {project.category} · {project.year}
             </span>
-            <h1>{project.title}</h1>
-            <div className="detail-meta-grid">
+            <h1 className="relative text-[clamp(32px,5vw,56px)] leading-[1.02] font-extrabold tracking-[-0.04em]">
+              {project.title}
+            </h1>
+            <div className="relative mt-8 grid grid-cols-2 gap-4 border-t border-white/25 pt-6 md:grid-cols-4">
+              {[
+                { label: "Role", value: project.role },
+                { label: "Timeline", value: project.timeline },
+                { label: "Stack", value: project.stack.slice(0, 3).join(" · ") },
+              ].map((m) => (
+                <div key={m.label}>
+                  <span className="mb-1.5 block text-[12px] tracking-[0.1em] uppercase opacity-70">
+                    {m.label}
+                  </span>
+                  <b className="text-[15px]">{m.value}</b>
+                </div>
+              ))}
               <div>
-                <span>Role</span>
-                <b>{project.role}</b>
-              </div>
-              <div>
-                <span>Timeline</span>
-                <b>{project.timeline}</b>
-              </div>
-              <div>
-                <span>Stack</span>
-                <b>{project.stack.slice(0, 3).join(" · ")}</b>
-              </div>
-              <div>
-                <span>Links</span>
-                <b>
-                  <a href={project.liveUrl} style={{ textDecoration: "underline" }}>
+                <span className="mb-1.5 block text-[12px] tracking-[0.1em] uppercase opacity-70">
+                  Links
+                </span>
+                <b className="text-[15px]">
+                  <a
+                    href={project.liveUrl}
+                    className="underline underline-offset-2"
+                  >
                     Live ↗
                   </a>{" "}
                   ·{" "}
-                  <a href={project.repoUrl} style={{ textDecoration: "underline" }}>
+                  <a
+                    href={project.repoUrl}
+                    className="underline underline-offset-2"
+                  >
                     Code ↗
                   </a>
                 </b>
@@ -70,15 +83,22 @@ export default async function ProjectDetail({
           </div>
         </Reveal>
 
-        <div className="detail-body">
+        <div className="mt-[22px] grid gap-[22px] md:grid-cols-[1.6fr_1fr]">
           <Reveal delay={0.05}>
-            <div className="detail-card">
-              <h2>Overview</h2>
+            <div className="py-2">
+              <h2 className="mb-4 text-[22px] tracking-[-0.02em]">Overview</h2>
               {project.description.map((para, i) => (
-                <p key={i}>{para}</p>
+                <p
+                  key={i}
+                  className="mb-4 text-[15.5px] leading-[1.7] text-muted last:mb-0"
+                >
+                  {para}
+                </p>
               ))}
-              <h2 style={{ marginTop: 28 }}>Tech stack</h2>
-              <div className="skill-chips">
+              <h2 className="mt-7 mb-4 text-[22px] tracking-[-0.02em]">
+                Tech stack
+              </h2>
+              <div className="skill-chips flex flex-wrap gap-2">
                 {project.stack.map((s) => (
                   <SkillBadge key={s} name={s} size="sm" />
                 ))}
@@ -86,15 +106,25 @@ export default async function ProjectDetail({
             </div>
           </Reveal>
           <Reveal delay={0.12}>
-            <div className="detail-card">
-              <h2>Highlights</h2>
-              <ul className="highlight-list">
+            <div className="py-2">
+              <h2 className="mb-4 text-[22px] tracking-[-0.02em]">
+                Highlights
+              </h2>
+              <ul className="flex list-none flex-col gap-3">
                 {project.highlights.map((h) => (
-                  <li key={h}>{h}</li>
+                  <li
+                    key={h}
+                    className="flex gap-3 text-[15px] leading-[1.55] text-[#333333] before:shrink-0 before:font-extrabold before:content-['→']"
+                  >
+                    {h}
+                  </li>
                 ))}
               </ul>
-              <div style={{ marginTop: 28 }}>
-                <Link href={`/projects/${next.slug}`} className="btn btn-secondary btn-sm">
+              <div className="mt-7">
+                <Link
+                  href={`/projects/${next.slug}`}
+                  className="btn btn-secondary btn-sm"
+                >
                   Next project: {next.year} →
                 </Link>
               </div>
@@ -102,7 +132,7 @@ export default async function ProjectDetail({
           </Reveal>
         </div>
       </div>
-      <div style={{ height: 8 }} />
+      <div className="h-2" />
     </div>
   );
 }

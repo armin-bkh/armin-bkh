@@ -9,14 +9,16 @@ export const metadata = {
 
 export default function ProjectsPage() {
   return (
-    <div className="container">
-      <section className="page-hero">
+    <div className="container-x">
+      <section className="pt-[150px] pb-2 max-md:pt-[130px]">
         <Reveal>
           <div className="eyebrow">Portfolio</div>
-          <h1>Projects</h1>
+          <h1 className="text-[clamp(38px,6vw,64px)] leading-none font-extrabold tracking-[-0.04em]">
+            Projects
+          </h1>
         </Reveal>
         <Reveal delay={0.1}>
-          <p>
+          <p className="mt-[14px] max-w-[640px] text-[17px] leading-[1.65] text-muted">
             Everything here shipped to real users — Web3 dashboards, headless
             CMS platforms, end-to-end commerce and B2B tools. Built with
             TypeScript, React and Next.js, integrated with backend services.
@@ -25,14 +27,14 @@ export default function ProjectsPage() {
         </Reveal>
       </section>
 
-      <section className="section" style={{ paddingTop: 32 }}>
-        <div className="works-grid">
+      <section className="pt-8 pb-2">
+        <div className="grid gap-[22px] md:grid-cols-2">
           {projects.map((p, i) => (
             <ProjectCard key={p.slug} project={p} index={i} />
           ))}
         </div>
       </section>
-      <div style={{ height: 8 }} />
+      <div className="h-2" />
     </div>
   );
 }

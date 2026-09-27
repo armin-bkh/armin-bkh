@@ -12,30 +12,40 @@ export default function ProjectCard({
 }) {
   return (
     <Reveal delay={(index % 2) * 0.08}>
-      <Link href={`/projects/${project.slug}`} className="work-card">
+      <Link href={`/projects/${project.slug}`} className="group flex flex-col">
         <div
-          className="work-cover"
+          className="relative flex h-[220px] items-center justify-center overflow-hidden rounded-[20px]"
           style={{
             background: `linear-gradient(135deg, hsl(${project.hue} 45% 22%) 0%, hsl(${project.hue} 60% 42%) 55%, hsl(${(project.hue + 40) % 360} 70% 55%) 100%)`,
           }}
         >
-          <div className="work-cover-grid" />
-          <span className="work-cover-letter">
+          <div className="cover-grid absolute inset-0" />
+          <span className="text-[110px] font-extrabold tracking-[-0.05em] text-white/90 [text-shadow:0_4px_30px_rgba(0,0,0,0.2)] transition-transform duration-500 group-hover:scale-[1.08] group-hover:-rotate-2">
             {project.title.charAt(0)}
           </span>
-          <span className="year-tag">{project.year}</span>
+          <span className="year-tag absolute top-[14px] right-[14px]">
+            {project.year}
+          </span>
         </div>
-        <div className="work-body">
-          <span className="work-cat">{project.category}</span>
-          <h3 className="work-title">{project.title}</h3>
-          <p className="work-desc">{project.tagline}</p>
-          <div className="work-foot">
-            <div className="skill-chips">
+        <div className="flex flex-1 flex-col gap-2.5 px-1 pt-5 pb-1.5">
+          <span className="text-[12.5px] font-bold tracking-[0.08em] text-faint uppercase">
+            {project.category}
+          </span>
+          <h3 className="text-[22px] leading-[1.15] font-bold tracking-[-0.025em]">
+            {project.title}
+          </h3>
+          <p className="line-clamp-2 text-[15px] leading-relaxed text-muted">
+            {project.tagline}
+          </p>
+          <div className="mt-auto flex items-center justify-between pt-4">
+            <div className="skill-chips flex flex-wrap gap-2">
               {project.stack.slice(0, 3).map((s) => (
                 <SkillBadge key={s} name={s} size="sm" />
               ))}
             </div>
-            <span className="work-arrow">→</span>
+            <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-ink text-lg text-white shadow-[0_10px_20px_-10px_rgba(11,11,12,0.6)] transition-transform duration-300 group-hover:-rotate-45">
+              →
+            </span>
           </div>
         </div>
       </Link>

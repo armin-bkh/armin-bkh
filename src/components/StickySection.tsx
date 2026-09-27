@@ -43,18 +43,33 @@ export default function StickySection({
   }, []);
 
   return (
-    <div ref={ref} className="sticky-section">
-      <div className="sticky-col">
-        <div className={`sticky-title${active ? " is-active" : ""}`}>
-          <span className="sticky-index">
-            <span className="sticky-dot" />
+    <div
+      ref={ref}
+      className="grid items-start gap-2 md:grid-cols-[230px_1fr] md:gap-[clamp(24px,4vw,56px)]"
+    >
+      <div className="self-stretch">
+        <div className="static pb-0 md:sticky md:top-[108px] md:pb-6">
+          <span className="mb-3 inline-flex items-center gap-2 text-[13px] font-extrabold tracking-[0.14em] text-faint">
+            <span
+              className={`h-[9px] w-[9px] rounded-full border-[1.5px] transition-all duration-300 ${
+                active ? "border-ink bg-ink" : "border-faint"
+              }`}
+            />
             {index}
           </span>
-          <h2>{title}</h2>
-          <p>{sub}</p>
+          <h2
+            className={`text-[clamp(24px,3vw,32px)] leading-[1.05] font-extrabold tracking-[-0.03em] transition-colors duration-300 ${
+              active ? "text-ink" : "text-faint"
+            }`}
+          >
+            {title}
+          </h2>
+          <p className="mt-2.5 text-[14.5px] leading-relaxed text-faint">
+            {sub}
+          </p>
         </div>
       </div>
-      <div className="sticky-rows">{children}</div>
+      <div className="min-w-0">{children}</div>
     </div>
   );
 }
