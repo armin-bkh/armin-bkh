@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { projects } from "@/data/portfolio";
 import Reveal from "@/components/Reveal";
 import SkillBadge from "@/components/SkillBadge";
+import HorizontalGallery from "@/components/HorizontalGallery";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -39,6 +40,23 @@ export default async function ProjectDetail({
               background: `linear-gradient(135deg, hsl(${project.hue} 45% 18%) 0%, hsl(${project.hue} 55% 36%) 55%, hsl(${(project.hue + 40) % 360} 65% 48%) 100%)`,
             }}
           >
+            {project.cover && (
+              <>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={project.cover}
+                  alt=""
+                  aria-hidden
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+                <div
+                  className="absolute inset-0 opacity-40"
+                  style={{
+                    background: `linear-gradient(135deg, hsl(${project.hue} 45% 18%) 0%, hsl(${project.hue} 55% 36%) 55%, hsl(${(project.hue + 40) % 360} 65% 48%) 100%)`,
+                  }}
+                />
+              </>
+            )}
             <div className="cover-grid absolute inset-0" />
             <span className="relative mb-3.5 inline-block text-[13px] font-bold tracking-widest uppercase opacity-85">
               {project.category} · {project.year}
@@ -67,19 +85,33 @@ export default async function ProjectDetail({
                   Links
                 </span>
                 <b className="text-[15px]">
-                  <a
-                    href={project.liveUrl}
-                    className="underline underline-offset-2"
-                  >
-                    Live ↗
-                  </a>{" "}
-                  ·{" "}
-                  <a
-                    href={project.repoUrl}
-                    className="underline underline-offset-2"
-                  >
-                    Code ↗
-                  </a>
+                  {project.liveUrl !== "#" && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="underline underline-offset-2"
+                    >
+                      {project.liveUrl.includes("x.com") ||
+                      project.liveUrl.includes("twitter.com")
+                        ? "X ↗"
+                        : "Live ↗"}
+                    </a>
+                  )}
+                  {project.liveUrl !== "#" && project.repoUrl !== "#" && " · "}
+                  {project.repoUrl !== "#" && (
+                    <a
+                      href={project.repoUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="underline underline-offset-2"
+                    >
+                      Code ↗
+                    </a>
+                  )}
+                  {project.liveUrl === "#" && project.repoUrl === "#" && (
+                    <span className="font-normal opacity-70">Private</span>
+                  )}
                 </b>
               </div>
             </div>
@@ -134,6 +166,10 @@ export default async function ProjectDetail({
             </div>
           </Reveal>
         </div>
+
+        {project.gallery && project.gallery.length > 0 && (
+          <HorizontalGallery images={project.gallery} title={project.title} />
+        )}
       </div>
       <div className="h-2" />
     </div>

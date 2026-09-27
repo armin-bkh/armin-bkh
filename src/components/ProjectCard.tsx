@@ -15,14 +15,38 @@ export default function ProjectCard({
       <Link href={`/projects/${project.slug}`} className="group flex flex-col">
         <div
           className="relative flex h-[220px] items-center justify-center overflow-hidden rounded-[20px]"
-          style={{
-            background: `linear-gradient(135deg, hsl(${project.hue} 45% 22%) 0%, hsl(${project.hue} 60% 42%) 55%, hsl(${(project.hue + 40) % 360} 70% 55%) 100%)`,
-          }}
+          style={
+            project.cover
+              ? undefined
+              : {
+                  background: `linear-gradient(135deg, hsl(${project.hue} 45% 22%) 0%, hsl(${project.hue} 60% 42%) 55%, hsl(${(project.hue + 40) % 360} 70% 55%) 100%)`,
+                }
+          }
         >
-          <div className="cover-grid absolute inset-0" />
-          <span className="text-[110px] font-extrabold tracking-[-0.05em] text-white/90 [text-shadow:0_4px_30px_rgba(0,0,0,0.2)] transition-transform duration-500 group-hover:scale-[1.08] group-hover:-rotate-2">
-            {project.title.charAt(0)}
-          </span>
+          {project.cover ? (
+            <>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={project.cover}
+                alt={project.title}
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+              />
+              <div
+                className="absolute inset-0 opacity-40"
+                style={{
+                  background: `linear-gradient(135deg, hsl(${project.hue} 45% 22%) 0%, hsl(${project.hue} 60% 42%) 55%, hsl(${(project.hue + 40) % 360} 70% 55%) 100%)`,
+                }}
+              />
+              <div className="cover-grid absolute inset-0" />
+            </>
+          ) : (
+            <>
+              <div className="cover-grid absolute inset-0" />
+              <span className="text-[110px] font-extrabold tracking-[-0.05em] text-white/90 [text-shadow:0_4px_30px_rgba(0,0,0,0.2)] transition-transform duration-500 group-hover:scale-[1.08] group-hover:-rotate-2">
+                {project.title.charAt(0)}
+              </span>
+            </>
+          )}
           <span className="year-tag absolute top-[14px] right-[14px]">
             {project.year}
           </span>

@@ -29,10 +29,58 @@ export type Project = {
   liveUrl: string;
   repoUrl: string;
   hue: number;
+  cover?: string;
+  gallery?: string[];
   highlights: string[];
 };
 
 export const projects: Project[] = [
+  {
+    slug: "prc-pixel-race-club",
+    title: "PRC — Pixel Race Club",
+    year: "2025",
+    category: "Web3 · Gaming",
+    tagline:
+      "A play-to-earn pixel racing game with XP, coins, mint eligibility and a full player dashboard — Unity WebGL powered by wagmi on Abstract...",
+    description: [
+      "PRC (Pixel Race Club) is a Web3 play-to-earn racing game: players race in Unity, earn XP and coins, and unlock eligibility to mint NFTs. Around the game sits a powerful player dashboard for profile management, NFT inventory, staking, leaderboard and match history.",
+      "I owned the frontend and Web3 integration: launched the Unity build in the browser with react-unity-webgl, wired wallet sessions and game events to the web app with wagmi and viem, and integrated Abstract Network smart contracts for minting and stake/unstake. I built the dashboard — editable profile data, NFT gallery with stake/unstake flows, leaderboard and matches list — with optimistic UI and contract-state syncing.",
+      "The result was a single seamless loop: connect wallet → play races → see XP/coins update → check mint eligibility → manage and stake NFTs — all without leaving the app.",
+    ],
+    stack: [
+      "TypeScript",
+      "React",
+      "Next.js",
+      "Unity",
+      "react-unity-webgl",
+      "wagmi",
+      "viem",
+      "Abstract Network",
+      "TanStack Query",
+      "Tailwind",
+    ],
+    role: "Frontend Developer · Web3 Integration",
+    timeline: "Jan 2025 — Sep 2025",
+    liveUrl: "https://x.com/PixelRaceClub",
+    repoUrl: "#",
+    hue: 8,
+    cover: "/prc/cover.png",
+    gallery: [
+      "/prc/1.png",
+      "/prc/2.png",
+      "/prc/3.png",
+      "/prc/4.png",
+      "/prc/5.png",
+      "/prc/6.png",
+      "/prc/7.png",
+    ],
+    highlights: [
+      "Unity WebGL game embedded via react-unity-webgl with wallet-gated sessions",
+      "Play-to-earn loop: XP, coins and on-chain mint eligibility synced to dashboard",
+      "Dashboard with profile management, NFT inventory and stake/unstake flows",
+      "Leaderboard and matches list with live ranks, plus Abstract mint integration",
+    ],
+  },
   {
     slug: "pulse-web3-dashboard",
     title: "Pulse — Web3 Portfolio Dashboard",
