@@ -75,7 +75,7 @@ export default function Home() {
             </span>
             <span>
               Focus:{" "}
-              <b className="font-bold text-ink">Web3 · CMS · E2E · B2B</b>
+              <b className="font-bold text-ink">Web3 · CMS · B2C · B2B</b>
             </span>
             <span>
               Stack:{" "}

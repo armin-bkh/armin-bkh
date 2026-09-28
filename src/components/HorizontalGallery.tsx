@@ -6,6 +6,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const isVideoSrc = (src: string) => /\.(mp4|webm|mov)(\?|$)/i.test(src);
+
 type HorizontalGalleryProps = {
   images: string[];
   title: string;
@@ -95,6 +97,12 @@ export default function HorizontalGallery({
           img.addEventListener("load", refreshSoon, { once: true });
         }
       });
+      const vids = Array.from(track.querySelectorAll("video"));
+      vids.forEach((vid) => {
+        if (vid instanceof HTMLVideoElement && vid.readyState < 1) {
+          vid.addEventListener("loadedmetadata", refreshSoon, { once: true });
+        }
+      });
       window.addEventListener("load", refreshSoon);
       // One immediate pass for the already-settled case.
       refreshSoon();
@@ -114,6 +122,7 @@ export default function HorizontalGallery({
   return (
     <section
       ref={sectionRef}
+      id="screens"
       aria-label={`${title} screens gallery`}
       className="relative mt-10 flex min-h-[82svh] flex-col justify-center overflow-hidden rounded-[28px] border border-line py-8"
     >
@@ -145,14 +154,29 @@ export default function HorizontalGallery({
       >
         {images.map((src, i) => (
           <figure key={src} className="relative shrink-0">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={src}
-              alt={`${title} screen ${i + 1}`}
-              loading={i < 2 ? "eager" : "lazy"}
-              draggable={false}
-              className="h-[36vh] w-auto rounded-[18px] border border-line object-cover shadow-[0_18px_40px_-24px_rgba(0,0,0,0.35)] select-none md:h-[46vh]"
-            />
+            {isVideoSrc(src) ? (
+              <video
+                src={src}
+                aria-label={`${title} demo ${i + 1}`}
+                muted
+                loop
+                playsInline
+                autoPlay
+                preload="metadata"
+                className="h-[36vh] w-auto rounded-[18px] border border-line object-cover shadow-[0_18px_40px_-24px_rgba(0,0,0,0.35)] md:h-[46vh]"
+              />
+            ) : (
+              <>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={src}
+                  alt={`${title} screen ${i + 1}`}
+                  loading={i < 2 ? "eager" : "lazy"}
+                  draggable={false}
+                  className="h-[36vh] w-auto rounded-[18px] border border-line object-cover shadow-[0_18px_40px_-24px_rgba(0,0,0,0.35)] select-none md:h-[46vh]"
+                />
+              </>
+            )}
             <figcaption className="mt-2 flex items-center justify-between text-[12px] font-bold tracking-[0.08em] text-faint uppercase">
               <span>
                 {String(i + 1).padStart(2, "0")} /{" "}

@@ -110,7 +110,21 @@ export default async function ProjectDetail({
                     </a>
                   )}
                   {project.liveUrl === "#" && project.repoUrl === "#" && (
-                    <span className="font-normal opacity-70">Private</span>
+                    project.status === "offline" ? (
+                      <span className="font-normal">
+                        <span className="opacity-70">Offline</span>
+                        {project.gallery && project.gallery.length > 0 && (
+                          <>
+                            {" · "}
+                            <a href="#screens" className="underline underline-offset-2">
+                              Demos ↓
+                            </a>
+                          </>
+                        )}
+                      </span>
+                    ) : (
+                      <span className="font-normal opacity-70">Private</span>
+                    )
                   )}
                 </b>
               </div>

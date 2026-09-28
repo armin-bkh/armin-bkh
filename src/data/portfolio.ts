@@ -31,6 +31,7 @@ export type Project = {
   hue: number;
   cover?: string;
   gallery?: string[];
+  status?: "offline";
   highlights: string[];
 };
 
@@ -66,6 +67,7 @@ export const projects: Project[] = [
     hue: 8,
     cover: "/prc/cover.png",
     gallery: [
+      "/prc/8.jpeg",
       "/prc/1.png",
       "/prc/2.png",
       "/prc/3.png",
@@ -79,6 +81,48 @@ export const projects: Project[] = [
       "Play-to-earn loop: XP, coins and on-chain mint eligibility synced to dashboard",
       "Dashboard with profile management, NFT inventory and stake/unstake flows",
       "Leaderboard and matches list with live ranks, plus Abstract mint integration",
+    ],
+  },
+  {
+    slug: "aih-all-in-hype",
+    title: "AIH — All In Hype",
+    year: "2025",
+    category: "Web3 · DeFi",
+    tagline:
+      "A professional Hyperliquid trading app as a Telegram Mini App — wallet, spot, perps, transfers and rewards, mirroring the trading bot...",
+    description: [
+      "AIH (All In Hype) is a professional trading app built on Hyperliquid and delivered as a Telegram Mini App inside a trading bot. Users create an account once and get every bot feature in the app: wallet, asset management, deposit, withdraw, transfer, spot and perpetual trading, plus a rewarding system.",
+      "I owned frontend development and the Telegram Mini App integration: the full app shell with Telegram theme, viewport and back-button behavior, wallet and asset screens, money-movement flows with clear pending/success states, spot and perp trading interfaces over live market data, and the rewards experience — all calling Hyperliquid-backed services with optimistic UI.",
+      "The result was a complete trading terminal living inside Telegram: no installs, no context switching between bot and app, and a mobile-first flow from account creation to first trade in minutes.",
+    ],
+    stack: [
+      "TypeScript",
+      "React",
+      "Telegram Mini Apps SDK",
+      "Hyperliquid",
+      "TanStack Query",
+      "Tailwind",
+    ],
+    role: "Frontend Developer · Telegram Mini App",
+    timeline: "2025",
+    liveUrl: "#",
+    repoUrl: "#",
+    hue: 140,
+    status: "offline",
+    cover: "/aih/cover.png",
+    gallery: [
+      "/aih/1.png",
+      "/aih/2.jpeg",
+      "/aih/3.jpeg",
+      "/aih/4.jpeg",
+      "/aih/demo-1.mp4",
+      "/aih/demo-2.mp4",
+    ],
+    highlights: [
+      "Telegram Mini App with native theme, viewport and navigation behavior",
+      "Wallet and asset management with deposit, withdraw and transfer flows",
+      "Spot and perpetual trading interfaces over live Hyperliquid markets",
+      "Rewarding system with points, history and claim flows",
     ],
   },
   {

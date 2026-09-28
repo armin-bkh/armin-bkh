@@ -14,7 +14,7 @@ export default function ProjectCard({
     <Reveal delay={(index % 2) * 0.08}>
       <Link href={`/projects/${project.slug}`} className="group flex flex-col">
         <div
-          className="relative flex h-[220px] items-center justify-center overflow-hidden rounded-[20px]"
+          className="relative flex h-55 items-center justify-center overflow-hidden rounded-[20px]"
           style={
             project.cover
               ? undefined
@@ -42,12 +42,12 @@ export default function ProjectCard({
           ) : (
             <>
               <div className="cover-grid absolute inset-0" />
-              <span className="text-[110px] font-extrabold tracking-[-0.05em] text-white/90 [text-shadow:0_4px_30px_rgba(0,0,0,0.2)] transition-transform duration-500 group-hover:scale-[1.08] group-hover:-rotate-2">
+              <span className="text-[110px] font-extrabold tracking-tighter text-white/90 [text-shadow:0_4px_30px_rgba(0,0,0,0.2)] transition-transform duration-500 group-hover:scale-[1.08] group-hover:-rotate-2">
                 {project.title.charAt(0)}
               </span>
             </>
           )}
-          <span className="year-tag absolute top-[14px] right-[14px]">
+          <span className="year-tag absolute top-3.5 right-3.5">
             {project.year}
           </span>
         </div>
@@ -55,7 +55,7 @@ export default function ProjectCard({
           <span className="text-[12.5px] font-bold tracking-[0.08em] text-faint uppercase">
             {project.category}
           </span>
-          <h3 className="text-[22px] leading-[1.15] font-bold tracking-[-0.025em]">
+          <h3 className="text-[22px] leading-[1.15] font-bold tracking-tight">
             {project.title}
           </h3>
           <p className="line-clamp-2 text-[15px] leading-relaxed text-muted">
