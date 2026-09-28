@@ -1,9 +1,15 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { profile, projects } from "@/data/portfolio";
 import { siteUrl } from "@/lib/site";
 import Reveal from "@/components/Reveal";
 import ProjectCard from "@/components/ProjectCard";
+
+export const metadata: Metadata = {
+  alternates: { canonical: siteUrl },
+  openGraph: { url: siteUrl },
+};
 
 const jsonLd = {
   "@context": "https://schema.org",
