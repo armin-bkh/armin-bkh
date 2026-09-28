@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 import { profile, projects, experience, skills, education } from "@/data/portfolio";
 import Reveal from "@/components/Reveal";
 import ProjectCard from "@/components/ProjectCard";
@@ -10,7 +11,14 @@ export const metadata = {
     "Everything about Armin Bakhshi in one place: profile, experience, projects, skills, education and contact.",
 };
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const tSite = await getTranslations("Site");
+  const tMeta = await getTranslations("Meta");
+  const tCommon = await getTranslations("Common");
+  const tProfile = await getTranslations("Profile");
+  const tExp = await getTranslations("Experience");
+  const tEdu = await getTranslations("Education");
+
   return (
     <div className="container-x">
       {/* ---------- Profile ---------- */}
@@ -30,7 +38,7 @@ export default function AboutPage() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-60" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
               </span>
-              {profile.availability}
+              {tSite("availability")}
             </span>
           </div>
         </Reveal>
@@ -43,7 +51,7 @@ export default function AboutPage() {
         </Reveal>
         <Reveal delay={0.16}>
           <p className="mt-3.5 max-w-160 text-[17px] leading-[1.65] text-muted">
-            {profile.tagline} {profile.summary}
+            {tSite("tagline")} {tSite("summary")}
           </p>
         </Reveal>
         <Reveal delay={0.24}>
@@ -57,7 +65,7 @@ export default function AboutPage() {
               rel="noreferrer"
               className="btn btn-secondary"
             >
-              Book a call
+              {tCommon("bookACall")}
             </a>
             <a
               href={profile.github}
@@ -65,7 +73,7 @@ export default function AboutPage() {
               rel="noreferrer"
               className="btn btn-light"
             >
-              GitHub ↗
+              {tCommon("github")}
             </a>
             <a
               href={profile.linkedin}
@@ -73,21 +81,22 @@ export default function AboutPage() {
               rel="noreferrer"
               className="btn btn-light"
             >
-              LinkedIn ↗
+              {tCommon("linkedIn")}
             </a>
           </div>
         </Reveal>
         <Reveal delay={0.3}>
           <div className="mt-8 flex flex-wrap gap-x-7 gap-y-2.5 border-t border-line pt-6 text-sm text-muted">
             <span>
-              Based: <b className="font-bold text-ink">{profile.location}</b>
+              {tMeta("based")}{" "}
+              <b className="font-bold text-ink">{profile.location}</b>
             </span>
             <span>
-              Status:{" "}
-              <b className="font-bold text-ink">{profile.availability}</b>
+              {tMeta("status")}{" "}
+              <b className="font-bold text-ink">{tSite("availability")}</b>
             </span>
             <span>
-              Stack:{" "}
+              {tMeta("stack")}{" "}
               <b className="font-bold text-ink">TypeScript · React · Next.js</b>
             </span>
           </div>
@@ -97,37 +106,40 @@ export default function AboutPage() {
       {/* ---------- Experience ---------- */}
       <section className="pt-18 pb-2">
         <Reveal>
-          <div className="eyebrow">Experience</div>
+          <div className="eyebrow">{tProfile("experienceEyebrow")}</div>
           <h2 className="text-[clamp(30px,4.5vw,46px)] leading-[1.02] font-extrabold tracking-[-0.04em]">
-            Where I&apos;ve worked
+            {tProfile("experienceTitle")}
           </h2>
         </Reveal>
         <div className="mt-7 flex flex-col divide-y divide-line border-y border-line">
-          {experience.map((job) => (
-            <Reveal key={job.company}>
-              <article className="py-6.5">
-                <div className="flex flex-wrap items-start justify-between gap-3">
-                  <div>
-                    <h3 className="text-[19px] tracking-[-0.02em]">
-                      {job.role}
-                    </h3>
-                    <div className="mt-1 text-[14.5px] text-muted">
-                      {job.company} · {job.location}
+          {experience.map((job) => {
+            const bullets = tExp.raw(`${job.key}.bullets`) as string[];
+            return (
+              <Reveal key={job.company}>
+                <article className="py-6.5">
+                  <div className="flex flex-wrap items-start justify-between gap-3">
+                    <div>
+                      <h3 className="text-[19px] tracking-[-0.02em]">
+                        {job.role}
+                      </h3>
+                      <div className="mt-1 text-[14.5px] text-muted">
+                        {job.company} · {job.location}
+                      </div>
                     </div>
+                    <span className="exp-period">{job.period}</span>
                   </div>
-                  <span className="exp-period">{job.period}</span>
-                </div>
-                <p className="mt-3 text-[15.5px] leading-[1.6]">
-                  {job.summary}
-                </p>
-                <ul className="mt-3 ml-4.5 flex flex-col gap-2 text-[15px] leading-[1.6] text-muted">
-                  {job.bullets.map((b) => (
-                    <li key={b}>{b}</li>
-                  ))}
-                </ul>
-              </article>
-            </Reveal>
-          ))}
+                  <p className="mt-3 text-[15.5px] leading-[1.6]">
+                    {tExp(`${job.key}.summary`)}
+                  </p>
+                  <ul className="mt-3 ml-4.5 flex flex-col gap-2 text-[15px] leading-[1.6] text-muted">
+                    {bullets.map((b) => (
+                      <li key={b}>{b}</li>
+                    ))}
+                  </ul>
+                </article>
+              </Reveal>
+            );
+          })}
         </div>
       </section>
 
@@ -136,13 +148,13 @@ export default function AboutPage() {
         <Reveal>
           <div className="mb-7 flex items-end justify-between gap-4">
             <div>
-              <div className="eyebrow">Work</div>
+              <div className="eyebrow">{tProfile("workEyebrow")}</div>
               <h2 className="text-[clamp(30px,4.5vw,46px)] leading-[1.02] font-extrabold tracking-[-0.04em]">
-                Projects
+                {tProfile("projectsTitle")}
               </h2>
             </div>
             <Link href="/projects" className="link-more">
-              All projects →
+              {tCommon("allProjects")}
             </Link>
           </div>
         </Reveal>
@@ -156,9 +168,9 @@ export default function AboutPage() {
       {/* ---------- Skills ---------- */}
       <section className="pt-18 pb-2">
         <Reveal>
-          <div className="eyebrow">Skills</div>
+          <div className="eyebrow">{tProfile("skillsEyebrow")}</div>
           <h2 className="text-[clamp(30px,4.5vw,46px)] leading-[1.02] font-extrabold tracking-[-0.04em]">
-            Toolbox
+            {tProfile("skillsTitle")}
           </h2>
         </Reveal>
         <div className="mt-7 flex flex-col divide-y divide-line border-y border-line">
@@ -182,9 +194,9 @@ export default function AboutPage() {
       {/* ---------- Education ---------- */}
       <section className="pt-18 pb-2">
         <Reveal>
-          <div className="eyebrow">Education</div>
+          <div className="eyebrow">{tProfile("educationEyebrow")}</div>
           <h2 className="text-[clamp(30px,4.5vw,46px)] leading-[1.02] font-extrabold tracking-[-0.04em]">
-            Studying
+            {tProfile("educationTitle")}
           </h2>
         </Reveal>
         <div className="mt-7 flex flex-col divide-y divide-line border-y border-line">
@@ -198,7 +210,7 @@ export default function AboutPage() {
                   <span className="exp-period">{e.period}</span>
                 </div>
                 <p className="mt-2.5 text-[15px] leading-[1.6] text-muted">
-                  {e.detail}
+                  {tEdu(`${e.key}.detail`)}
                 </p>
               </div>
             </Reveal>
@@ -211,13 +223,12 @@ export default function AboutPage() {
         <Reveal>
           <div className="flex flex-wrap items-center justify-between gap-6 border-t border-line pt-8">
             <div className="max-w-140">
-              <div className="eyebrow">Contact</div>
+              <div className="eyebrow">{tProfile("contactEyebrow")}</div>
               <h2 className="text-[26px] tracking-[-0.03em]">
-                Have a project in mind?
+                {tProfile("contactTitle")}
               </h2>
               <p className="mt-3 max-w-140 text-[16.5px] leading-relaxed text-muted">
-                I usually reply within 24 hours. Book a call or send an email
-                and tell me about your product.
+                {tProfile("contactBody")}
               </p>
             </div>
             <div className="flex flex-wrap gap-2.5">
@@ -227,7 +238,7 @@ export default function AboutPage() {
                 rel="noreferrer"
                 className="btn btn-primary"
               >
-                Book a call
+                {tCommon("bookACall")}
               </a>
               <a href={`mailto:${profile.email}`} className="btn btn-secondary">
                 ✉ {profile.email}

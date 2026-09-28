@@ -1,3 +1,4 @@
+import { getTranslations } from "next-intl/server";
 import { projects } from "@/data/portfolio";
 import Reveal from "@/components/Reveal";
 import ProjectCard from "@/components/ProjectCard";
@@ -7,22 +8,20 @@ export const metadata = {
   description: "Web3, DeFi, backend-driven and mobile projects by Armin Bakhshi.",
 };
 
-export default function ProjectsPage() {
+export default async function ProjectsPage() {
+  const t = await getTranslations("Projects");
   return (
     <div className="container-x">
       <section className="pt-37.5 pb-2 max-md:pt-32.5">
         <Reveal>
-          <div className="eyebrow">Portfolio</div>
+          <div className="eyebrow">{t("eyebrow")}</div>
           <h1 className="text-[clamp(38px,6vw,64px)] leading-none font-extrabold tracking-[-0.04em]">
-            Projects
+            {t("title")}
           </h1>
         </Reveal>
         <Reveal delay={0.1}>
           <p className="mt-3.5 max-w-160 text-[17px] leading-[1.65] text-muted">
-            Everything here shipped to real users — a Web3 game, a trading
-            app, a backend-driven site and a cross-platform climate app. Built
-            with TypeScript, React and Next.js. Open any card for the full
-            case study.
+            {t("body")}
           </p>
         </Reveal>
       </section>

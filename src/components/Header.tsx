@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { nav, profile } from "@/data/portfolio";
 
 function GithubIcon() {
@@ -24,6 +25,8 @@ function LinkedinIcon() {
 export default function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const tNav = useTranslations("Nav");
+  const tCommon = useTranslations("Common");
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 py-3.5">
@@ -58,7 +61,7 @@ export default function Header() {
                   : "text-muted hover:text-ink"
               }`}
             >
-              {item.label}
+              {tNav(item.key)}
             </Link>
           ))}
         </nav>
@@ -88,7 +91,7 @@ export default function Header() {
             rel="noreferrer"
             className="btn btn-primary btn-sm hidden md:inline-flex"
           >
-            Book a call
+            {tCommon("bookACall")}
           </a>
           <button
             className="icon-btn md:hidden"
@@ -114,7 +117,7 @@ export default function Header() {
                 pathname === item.href ? "bg-ink text-white" : ""
               }`}
             >
-              {item.label}
+              {tNav(item.key)}
             </Link>
           ))}
         </nav>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { NextIntlClientProvider } from "next-intl";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -45,7 +46,7 @@ export const metadata: Metadata = {
     "Frontend developer specializing in TypeScript, React and Next.js. Web3, DeFi, backend-driven and mobile products.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -53,10 +54,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body>
-        <SmoothScroll />
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <NextIntlClientProvider>
+          <SmoothScroll />
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

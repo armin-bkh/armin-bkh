@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { getTranslations } from "next-intl/server";
 import { projects } from "@/data/portfolio";
 import Reveal from "@/components/Reveal";
 import SkillBadge from "@/components/SkillBadge";
@@ -18,6 +19,11 @@ export default async function ProjectDetail({
   const project = projects.find((p) => p.slug === slug);
   if (!project) notFound();
 
+  const t = await getTranslations("ProjectDetail");
+  const tc = await getTranslations(`ProjectContent.${slug}`);
+  const description = tc.raw("description") as string[];
+  const highlights = tc.raw("highlights") as string[];
+
   const idx = projects.findIndex((p) => p.slug === slug);
   const next = projects[(idx + 1) % projects.length];
 
@@ -29,7 +35,7 @@ export default async function ProjectDetail({
             href="/projects"
             className="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-muted hover:text-ink"
           >
-            ← All projects
+            {t("backToAll")}
           </Link>
         </Reveal>
 
@@ -66,10 +72,10 @@ export default async function ProjectDetail({
             </h1>
             <div className="relative mt-8 grid grid-cols-2 gap-4 border-t border-white/25 pt-6 md:grid-cols-4">
               {[
-                { label: "Role", value: project.role },
-                { label: "Timeline", value: project.timeline },
+                { label: t("role"), value: project.role },
+                { label: t("timeline"), value: project.timeline },
                 {
-                  label: "Stack",
+                  label: t("stack"),
                   value: project.stack.slice(0, 3).join(" · "),
                 },
               ].map((m) => (
@@ -82,7 +88,7 @@ export default async function ProjectDetail({
               ))}
               <div>
                 <span className="mb-1.5 block text-[12px] tracking-widest uppercase opacity-70">
-                  Links
+                  {t("links")}
                 </span>
                 <b className="text-[15px]">
                   {project.links && project.links.length > 0 ? (
@@ -102,46 +108,54 @@ export default async function ProjectDetail({
                   ) : (
                     <>
                       {project.liveUrl !== "#" && (
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="underline underline-offset-2"
-                    >
-                      {project.liveUrl.includes("x.com") ||
-                      project.liveUrl.includes("twitter.com")
-                        ? "X ↗"
-                        : "Live ↗"}
-                    </a>
-                  )}
-                  {project.liveUrl !== "#" && project.repoUrl !== "#" && " · "}
-                  {project.repoUrl !== "#" && (
-                    <a
-                      href={project.repoUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="underline underline-offset-2"
-                    >
-                      Code ↗
-                    </a>
-                  )}
-                  {project.liveUrl === "#" && project.repoUrl === "#" && (
-                    project.status === "offline" ? (
-                      <span className="font-normal">
-                        <span className="opacity-70">Offline</span>
-                        {project.gallery && project.gallery.length > 0 && (
-                          <>
-                            {" · "}
-                            <a href="#screens" className="underline underline-offset-2">
-                              Demos ↓
-                            </a>
-                          </>
-                        )}
-                      </span>
-                    ) : (
-                      <span className="font-normal opacity-70">Private</span>
-                    )
-                  )}
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="underline underline-offset-2"
+                        >
+                          {project.liveUrl.includes("x.com") ||
+                          project.liveUrl.includes("twitter.com")
+                            ? t("x")
+                            : t("live")}
+                        </a>
+                      )}
+                      {project.liveUrl !== "#" &&
+                        project.repoUrl !== "#" &&
+                        " · "}
+                      {project.repoUrl !== "#" && (
+                        <a
+                          href={project.repoUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="underline underline-offset-2"
+                        >
+                          {t("code")}
+                        </a>
+                      )}
+                      {project.liveUrl === "#" &&
+                        project.repoUrl === "#" &&
+                        (project.status === "offline" ? (
+                          <span className="font-normal">
+                            <span className="opacity-70">{t("offline")}</span>
+                            {project.gallery &&
+                              project.gallery.length > 0 && (
+                                <>
+                                  {" · "}
+                                  <a
+                                    href="#screens"
+                                    className="underline underline-offset-2"
+                                  >
+                                    {t("demos")}
+                                  </a>
+                                </>
+                              )}
+                          </span>
+                        ) : (
+                          <span className="font-normal opacity-70">
+                            {t("private")}
+                          </span>
+                        ))}
                     </>
                   )}
                 </b>
@@ -153,8 +167,10 @@ export default async function ProjectDetail({
         <div className="mt-5.5 grid gap-5.5 md:grid-cols-[1.6fr_1fr]">
           <Reveal delay={0.05}>
             <div className="py-2">
-              <h2 className="mb-4 text-[22px] tracking-[-0.02em]">Overview</h2>
-              {project.description.map((para, i) => (
+              <h2 className="mb-4 text-[22px] tracking-[-0.02em]">
+                {t("overview")}
+              </h2>
+              {description.map((para, i) => (
                 <p
                   key={i}
                   className="mb-4 text-[15.5px] leading-[1.7] text-muted last:mb-0"
@@ -163,7 +179,7 @@ export default async function ProjectDetail({
                 </p>
               ))}
               <h2 className="mt-7 mb-4 text-[22px] tracking-[-0.02em]">
-                Tech stack
+                {t("techStack")}
               </h2>
               <div className="skill-chips flex flex-wrap gap-2">
                 {project.stack.map((s) => (
@@ -175,10 +191,10 @@ export default async function ProjectDetail({
           <Reveal delay={0.12}>
             <div className="py-2">
               <h2 className="mb-4 text-[22px] tracking-[-0.02em]">
-                Highlights
+                {t("highlights")}
               </h2>
               <ul className="flex list-none flex-col gap-3">
-                {project.highlights.map((h) => (
+                {highlights.map((h) => (
                   <li
                     key={h}
                     className="flex gap-3 text-[15px] leading-[1.55] text-[#333333] before:shrink-0 before:font-extrabold before:content-['→']"
@@ -192,7 +208,7 @@ export default async function ProjectDetail({
                   href={`/projects/${next.slug}`}
                   className="btn btn-secondary btn-sm"
                 >
-                  Next project: {next.year} →
+                  {t("nextProject", { year: next.year })}
                 </Link>
               </div>
             </div>

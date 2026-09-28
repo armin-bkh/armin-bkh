@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useTranslations } from "next-intl";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -26,6 +27,7 @@ export default function HorizontalGallery({
   const sectionRef = useRef<HTMLElement | null>(null);
   const trackRef = useRef<HTMLDivElement | null>(null);
   const barRef = useRef<HTMLDivElement | null>(null);
+  const t = useTranslations("ProjectDetail");
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -128,13 +130,13 @@ export default function HorizontalGallery({
     >
       <div className="flex items-end justify-between gap-4 px-6 pt-6 md:px-8">
         <div>
-          <h2 className="text-[22px] tracking-[-0.02em]">Screens</h2>
+          <h2 className="text-[22px] tracking-[-0.02em]">{t("screensTitle")}</h2>
           <p className="mt-1 max-w-160 text-[14.5px] leading-relaxed text-muted">
-            Different parts of the app — scroll to travel through them.
+            {t("screensBody")}
           </p>
         </div>
         <span className="hidden shrink-0 text-[13px] font-bold tracking-[0.08em] text-faint uppercase sm:block">
-          Scroll →
+          {t("scrollHint")}
         </span>
       </div>
 
@@ -188,7 +190,7 @@ export default function HorizontalGallery({
 
         <div className="grid w-[62vw] shrink-0 place-items-center rounded-[18px] border border-dashed border-line-strong sm:w-[300px]">
           <span className="px-6 py-4 text-center text-[13.5px] font-semibold text-muted">
-            End of screens
+            {t("endOfScreens")}
           </span>
         </div>
       </div>

@@ -1,15 +1,17 @@
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 import type { Project } from "@/data/portfolio";
 import Reveal from "./Reveal";
 import SkillBadge from "./SkillBadge";
 
-export default function ProjectCard({
+export default async function ProjectCard({
   project,
   index = 0,
 }: {
   project: Project;
   index?: number;
 }) {
+  const t = await getTranslations(`ProjectContent.${project.slug}`);
   return (
     <Reveal delay={(index % 2) * 0.08}>
       <Link href={`/projects/${project.slug}`} className="group flex flex-col">
@@ -59,7 +61,7 @@ export default function ProjectCard({
             {project.title}
           </h3>
           <p className="line-clamp-2 text-[15px] leading-relaxed text-muted">
-            {project.tagline}
+            {t("tagline")}
           </p>
           <div className="mt-auto flex items-center justify-between pt-4">
             <div className="skill-chips flex flex-wrap gap-2">

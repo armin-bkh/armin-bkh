@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { profile } from "@/data/portfolio";
@@ -10,6 +11,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function Footer() {
   const giantRef = useRef<HTMLDivElement>(null);
+  const tFooter = useTranslations("Footer");
+  const tCommon = useTranslations("Common");
 
   useEffect(() => {
     const el = giantRef.current;
@@ -40,14 +43,13 @@ export default function Footer() {
       <div className="container-x pt-18">
         <div className="px-2 py-5 text-center">
           <p className="text-[13px] font-bold tracking-[0.14em]">
-            HAVE A PROJECT IN MIND?
+            {tFooter("eyebrow")}
           </p>
           <h2 className="mt-3 text-[clamp(34px,6vw,62px)] leading-none font-extrabold tracking-[-0.04em]">
-            Let&apos;s build something great.
+            {tFooter("title")}
           </h2>
           <p className="mx-auto mt-4 max-w-130 text-[17px] leading-relaxed text-[#a3a3a0]">
-            I&apos;m currently open to frontend roles and freelance projects.
-            Tell me about your product — I usually reply within 24 hours.
+            {tFooter("body")}
           </p>
           <div>
             <a
@@ -59,9 +61,9 @@ export default function Footer() {
           </div>
           <div className="mt-8 flex flex-wrap justify-center gap-2.5">
             {[
-              { label: "GitHub ↗", href: profile.github },
-              { label: "LinkedIn ↗", href: profile.linkedin },
-              { label: "Book a call ↗", href: profile.bookingUrl },
+              { label: tCommon("github"), href: profile.github },
+              { label: tCommon("linkedIn"), href: profile.linkedin },
+              { label: `${tCommon("bookACall")} ↗`, href: profile.bookingUrl },
             ].map((l) => (
               <a
                 key={l.label}
@@ -77,16 +79,14 @@ export default function Footer() {
               href="/projects"
               className="rounded-full border border-white/15 px-5.5 py-2.5 text-sm font-semibold text-[#d6d6d3] transition-all duration-300 hover:border-canvas hover:bg-canvas hover:text-ink"
             >
-              My works →
+              {tCommon("myWorks")}
             </Link>
           </div>
         </div>
 
         <div className="mt-12 flex items-center justify-between gap-3 border-t border-white/10 py-7 text-[13.5px] text-[#8d8d8a] max-md:flex-col">
-          <span>© 2026 Armin Bakhshi. All rights reserved.</span>
-          <span>
-            Built with TypeScript, React &amp; Next.js · {profile.location}
-          </span>
+          <span>{tFooter("copyright")}</span>
+          <span>{tFooter("builtWith", { location: profile.location })}</span>
         </div>
 
         <div

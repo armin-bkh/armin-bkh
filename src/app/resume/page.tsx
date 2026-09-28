@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 import { profile, experience, skills, education } from "@/data/portfolio";
 import Reveal from "@/components/Reveal";
 import StickySection from "@/components/StickySection";
@@ -9,12 +10,19 @@ export const metadata = {
   description: "Experience, skills and education of Armin Bakhshi.",
 };
 
-export default function ResumePage() {
+export default async function ResumePage() {
+  const tSite = await getTranslations("Site");
+  const tNav = await getTranslations("Nav");
+  const tCommon = await getTranslations("Common");
+  const tResume = await getTranslations("Resume");
+  const tExp = await getTranslations("Experience");
+  const tEdu = await getTranslations("Education");
+
   return (
     <div className="container-x">
       <section className="pt-37.5 pb-2 max-md:pt-32.5">
         <Reveal>
-          <div className="eyebrow">Resume</div>
+          <div className="eyebrow">{tNav("resume")}</div>
           <h1 className="text-[clamp(38px,6vw,64px)] leading-none font-extrabold tracking-[-0.04em]">
             {profile.name} —<br />
             {profile.role}
@@ -22,7 +30,7 @@ export default function ResumePage() {
         </Reveal>
         <Reveal delay={0.1}>
           <p className="mt-3.5 max-w-160 text-[17px] leading-[1.65] text-muted">
-            {profile.summary}
+            {tSite("summary")}
           </p>
         </Reveal>
       </section>
@@ -33,24 +41,23 @@ export default function ResumePage() {
           <Reveal>
             <div className="py-2">
               <h2 className="text-[clamp(22px,3vw,30px)] tracking-[-0.03em]">
-                Summary &amp; contact
+                {tResume("summaryTitle")}
               </h2>
               <p className="mt-1.5 mb-7 text-[15.5px] text-muted">
-                Frontend developer, deep in TypeScript, React and Next.js — with
-                backend-service experience across Web3, DeFi and mobile
-                products.
+                {tResume("summaryBody")}
               </p>
               <div className="flex flex-wrap gap-x-7 gap-y-2.5 text-sm text-muted">
                 <span>
-                  Email: <b className="font-bold text-ink">{profile.email}</b>
+                  {tResume("emailLabel")}{" "}
+                  <b className="font-bold text-ink">{profile.email}</b>
                 </span>
                 <span>
-                  Location:{" "}
+                  {tResume("locationLabel")}{" "}
                   <b className="font-bold text-ink">{profile.location}</b>
                 </span>
                 <span>
-                  Status:{" "}
-                  <b className="font-bold text-ink">{profile.availability}</b>
+                  {tResume("statusLabel")}{" "}
+                  <b className="font-bold text-ink">{tSite("availability")}</b>
                 </span>
               </div>
               <div className="mt-5 flex flex-wrap gap-2.5">
@@ -66,7 +73,7 @@ export default function ResumePage() {
                   rel="noreferrer"
                   className="btn btn-secondary btn-sm"
                 >
-                  Book a call
+                  {tCommon("bookACall")}
                 </a>
                 <a
                   href={profile.github}
@@ -74,7 +81,7 @@ export default function ResumePage() {
                   rel="noreferrer"
                   className="btn btn-light btn-sm"
                 >
-                  GitHub ↗
+                  {tCommon("github")}
                 </a>
                 <a
                   href={profile.linkedin}
@@ -82,7 +89,7 @@ export default function ResumePage() {
                   rel="noreferrer"
                   className="btn btn-light btn-sm"
                 >
-                  LinkedIn ↗
+                  {tCommon("linkedIn")}
                 </a>
               </div>
             </div>
@@ -93,35 +100,38 @@ export default function ResumePage() {
         <section className="pt-0 pb-2">
           <StickySection
             index="01"
-            title="Experience"
-            sub="Where I've worked, my role, dates and what I did there."
+            title={tResume("experienceTitle")}
+            sub={tResume("experienceSub")}
           >
             <div className="flex flex-col divide-y divide-line">
-              {experience.map((job) => (
-                <Reveal key={job.company}>
-                  <article className="py-6.5">
-                    <div className="flex flex-wrap items-start justify-between gap-3">
-                      <div>
-                        <h3 className="text-[19px] tracking-[-0.02em]">
-                          {job.role}
-                        </h3>
-                        <div className="mt-1 text-[14.5px] text-muted">
-                          {job.company} · {job.location}
+              {experience.map((job) => {
+                const bullets = tExp.raw(`${job.key}.bullets`) as string[];
+                return (
+                  <Reveal key={job.company}>
+                    <article className="py-6.5">
+                      <div className="flex flex-wrap items-start justify-between gap-3">
+                        <div>
+                          <h3 className="text-[19px] tracking-[-0.02em]">
+                            {job.role}
+                          </h3>
+                          <div className="mt-1 text-[14.5px] text-muted">
+                            {job.company} · {job.location}
+                          </div>
                         </div>
+                        <span className="exp-period">{job.period}</span>
                       </div>
-                      <span className="exp-period">{job.period}</span>
-                    </div>
-                    <p className="mt-3 text-[15.5px] leading-[1.6]">
-                      {job.summary}
-                    </p>
-                    <ul className="mt-3 ml-4.5 flex flex-col gap-2 text-[15px] leading-[1.6] text-muted">
-                      {job.bullets.map((b) => (
-                        <li key={b}>{b}</li>
-                      ))}
-                    </ul>
-                  </article>
-                </Reveal>
-              ))}
+                      <p className="mt-3 text-[15.5px] leading-[1.6]">
+                        {tExp(`${job.key}.summary`)}
+                      </p>
+                      <ul className="mt-3 ml-4.5 flex flex-col gap-2 text-[15px] leading-[1.6] text-muted">
+                        {bullets.map((b) => (
+                          <li key={b}>{b}</li>
+                        ))}
+                      </ul>
+                    </article>
+                  </Reveal>
+                );
+              })}
             </div>
           </StickySection>
         </section>
@@ -130,8 +140,8 @@ export default function ResumePage() {
         <section className="pt-0 pb-2">
           <StickySection
             index="02"
-            title="Skills"
-            sub="Grouped by area — frontend first, with backend, data, auth, Web3 and testing to ship end to end."
+            title={tResume("skillsTitle")}
+            sub={tResume("skillsSub")}
           >
             <div className="flex flex-col divide-y divide-line">
               {skills.map((group) => (
@@ -156,8 +166,8 @@ export default function ResumePage() {
         <section className="pt-0 pb-2">
           <StickySection
             index="03"
-            title="Education"
-            sub="Degrees and certificates."
+            title={tResume("educationTitle")}
+            sub={tResume("educationSub")}
           >
             <div className="flex flex-col divide-y divide-line">
               {education.map((e) => (
@@ -170,7 +180,7 @@ export default function ResumePage() {
                       <span className="exp-period">{e.period}</span>
                     </div>
                     <p className="mt-2.5 text-[15px] leading-[1.6] text-muted">
-                      {e.detail}
+                      {tEdu(`${e.key}.detail`)}
                     </p>
                   </div>
                 </Reveal>
@@ -178,7 +188,7 @@ export default function ResumePage() {
             </div>
             <div className="mt-6">
               <Link href="/projects" className="btn btn-secondary btn-sm">
-                See my works →
+                {tResume("seeWorks")}
               </Link>
             </div>
           </StickySection>
