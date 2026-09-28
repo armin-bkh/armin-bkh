@@ -231,7 +231,7 @@ export const experience: Experience[] = [
   {
     company: "Freelance",
     role: "Frontend Developer",
-    period: "2024 — Present",
+    period: "2023 — Present",
     location: "Remote",
     summary:
       "Professional client projects across Web3, DeFi, backend-driven web and mobile — currently open for new work.",
@@ -279,6 +279,7 @@ export const skills: { area: string; items: string[] }[] = [
       "TypeScript",
       "React",
       "Next.js",
+      "next-intl",
       "HTML & CSS",
       "Zustand",
       "Redux",
@@ -336,4 +337,5 @@ export const nav = [
   { label: "Home", href: "/" },
   { label: "Projects", href: "/projects" },
   { label: "Resume", href: "/resume" },
+  { label: "Profile", href: "/profile" },
 ];
