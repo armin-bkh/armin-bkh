@@ -1,11 +1,14 @@
+import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { projects } from "@/data/portfolio";
 import Reveal from "@/components/Reveal";
 import ProjectCard from "@/components/ProjectCard";
 
-export const metadata = {
-  title: "Projects — Armin Bakhshi",
+export const metadata: Metadata = {
+  title: "Projects",
   description: "Web3, DeFi, backend-driven and mobile projects by Armin Bakhshi.",
+  alternates: { canonical: "/projects" },
+  openGraph: { title: "Projects", url: "/projects" },
 };
 
 export default async function ProjectsPage() {

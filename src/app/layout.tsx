@@ -5,6 +5,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
+import { siteUrl, siteName, siteDescription } from "@/lib/site";
 
 const geistSans = localFont({
   src: [
@@ -41,9 +42,39 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Armin Bakhshi — Frontend Developer",
-  description:
-    "Frontend developer specializing in TypeScript, React and Next.js. Web3, DeFi, backend-driven and mobile products.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: `${siteName} — Frontend Developer`,
+    template: `%s — ${siteName}`,
+  },
+  description: siteDescription,
+  keywords: [
+    "Frontend Developer",
+    "TypeScript",
+    "React",
+    "Next.js",
+    "Web3",
+    "DeFi",
+    "Telegram Mini Apps",
+    "React Native",
+    "Strapi",
+    "Portfolio",
+  ],
+  authors: [{ name: siteName }],
+  creator: siteName,
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    siteName,
+    title: `${siteName} — Frontend Developer`,
+    description: siteDescription,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${siteName} — Frontend Developer`,
+    description: siteDescription,
+  },
+  robots: { index: true, follow: true },
 };
 
 export default async function RootLayout({

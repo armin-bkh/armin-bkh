@@ -1,14 +1,17 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { profile, projects, experience, skills, education } from "@/data/portfolio";
 import Reveal from "@/components/Reveal";
 import ProjectCard from "@/components/ProjectCard";
 import SkillBadge from "@/components/SkillBadge";
 
-export const metadata = {
-  title: "Profile — Armin Bakhshi",
+export const metadata: Metadata = {
+  title: "Profile",
   description:
     "Everything about Armin Bakhshi in one place: profile, experience, projects, skills, education and contact.",
+  alternates: { canonical: "/profile" },
+  openGraph: { title: "Profile", url: "/profile" },
 };
 
 export default async function AboutPage() {

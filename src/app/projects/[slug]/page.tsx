@@ -1,13 +1,41 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { projects } from "@/data/portfolio";
+import { siteUrl } from "@/lib/site";
 import Reveal from "@/components/Reveal";
 import SkillBadge from "@/components/SkillBadge";
 import HorizontalGallery from "@/components/HorizontalGallery";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const project = projects.find((p) => p.slug === slug);
+  if (!project) return {};
+  const t = await getTranslations(`ProjectContent.${slug}`);
+  const description = t("tagline");
+  const images = project.cover ? [{ url: `${siteUrl}${project.cover}` }] : undefined;
+  return {
+    title: project.title,
+    description,
+    alternates: { canonical: `/projects/${slug}` },
+    openGraph: {
+      title: project.title,
+      description,
+      url: `/projects/${slug}`,
+      type: "article",
+      images,
+    },
+    twitter: { card: "summary_large_image", title: project.title, description, images },
+  };
 }
 
 export default async function ProjectDetail({

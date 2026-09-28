@@ -1,13 +1,16 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { profile, experience, skills, education } from "@/data/portfolio";
 import Reveal from "@/components/Reveal";
 import StickySection from "@/components/StickySection";
 import SkillBadge from "@/components/SkillBadge";
 
-export const metadata = {
-  title: "Resume — Armin Bakhshi",
+export const metadata: Metadata = {
+  title: "Resume",
   description: "Experience, skills and education of Armin Bakhshi.",
+  alternates: { canonical: "/resume" },
+  openGraph: { title: "Resume", url: "/resume" },
 };
 
 export default async function ResumePage() {

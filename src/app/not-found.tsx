@@ -1,10 +1,12 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import Reveal from "@/components/Reveal";
 
-export const metadata = {
-  title: "Not found — Armin Bakhshi",
+export const metadata: Metadata = {
+  title: "Not found",
   description: "This page does not exist.",
+  robots: { index: false, follow: false },
 };
 
 export default async function NotFound() {

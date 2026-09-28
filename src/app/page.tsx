@@ -1,8 +1,31 @@
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import { profile, projects } from "@/data/portfolio";
+import { siteUrl } from "@/lib/site";
 import Reveal from "@/components/Reveal";
 import ProjectCard from "@/components/ProjectCard";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  mainEntity: {
+    "@type": "Person",
+    name: profile.name,
+    jobTitle: profile.role,
+    url: siteUrl,
+    sameAs: [profile.github, profile.linkedin, profile.bookingUrl],
+    knowsAbout: [
+      "TypeScript",
+      "React",
+      "Next.js",
+      "Web3",
+      "DeFi",
+      "React Native",
+      "Strapi",
+      "Telegram Mini Apps",
+    ],
+  },
+};
 
 export default async function Home() {
   const tSite = await getTranslations("Site");
@@ -13,6 +36,10 @@ export default async function Home() {
 
   return (
     <div className="container-x">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* ---------- Hero ---------- */}
       <section className="pt-37.5 pb-10 max-md:pt-32.5">
         <Reveal>
