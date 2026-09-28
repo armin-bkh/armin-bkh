@@ -97,31 +97,42 @@ export default function Header() {
             className="icon-btn md:hidden"
             onClick={() => setOpen((v) => !v)}
             aria-label="Toggle menu"
+            aria-expanded={open}
           >
             {open ? "✕" : "☰"}
           </button>
         </div>
       </div>
 
-      {open && (
-        <nav
-          aria-label="Mobile"
-          className="mx-auto mt-2 flex w-[min(1120px,100%-32px)] flex-col gap-1 rounded-[20px] border border-white/70 bg-white/80 p-3 shadow-[0_12px_32px_-12px_rgba(0,0,0,0.2)] backdrop-blur-[18px] md:hidden"
-        >
-          {nav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              onClick={() => setOpen(false)}
-              className={`rounded-xl px-4 py-3 text-[15px] font-semibold ${
-                pathname === item.href ? "bg-ink text-white" : ""
-              }`}
-            >
-              {tNav(item.key)}
-            </Link>
-          ))}
-        </nav>
-      )}
+      <div
+        className={`grid transition-all duration-300 ease-out md:hidden ${
+          open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+        }`}
+      >
+        <div className="overflow-hidden">
+          <nav
+            aria-label="Mobile"
+            inert={!open}
+            className={`mx-auto mt-2 flex w-[min(1120px,100%-32px)] flex-col gap-1 rounded-[20px] border border-white/70 bg-white/30 p-3 shadow-[0_12px_32px_-12px_rgba(0,0,0,0.2)] backdrop-blur-[18px] transition-transform duration-300 ease-out ${
+              open ? "translate-y-0" : "-translate-y-full"
+            }`}
+          >
+            {nav.map((item, i) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setOpen(false)}
+                style={{ transitionDelay: open ? `${i * 45}ms` : "0ms" }}
+                className={`rounded-xl px-4 py-3 text-[15px] font-semibold transition-transform duration-300 ease-out ${
+                  open ? "translate-x-0" : "translate-x-3"
+                } ${pathname === item.href ? "bg-ink text-white" : ""}`}
+              >
+                {tNav(item.key)}
+              </Link>
+            ))}
+          </nav>
+        </div>
+      </div>
     </header>
   );
 }

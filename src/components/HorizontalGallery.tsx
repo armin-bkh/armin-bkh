@@ -130,7 +130,9 @@ export default function HorizontalGallery({
     >
       <div className="flex items-end justify-between gap-4 px-6 pt-6 md:px-8">
         <div>
-          <h2 className="text-[22px] tracking-[-0.02em]">{t("screensTitle")}</h2>
+          <h2 className="text-[22px] tracking-[-0.02em]">
+            {t("screensTitle")}
+          </h2>
           <p className="mt-1 max-w-160 text-[14.5px] leading-relaxed text-muted">
             {t("screensBody")}
           </p>
@@ -188,7 +190,7 @@ export default function HorizontalGallery({
           </figure>
         ))}
 
-        <div className="grid w-[62vw] shrink-0 place-items-center rounded-[18px] border border-dashed border-line-strong sm:w-[300px]">
+        <div className="grid w-[62vw] shrink-0 place-items-center rounded-[18px] border border-dashed border-line-strong sm:w-75">
           <span className="px-6 py-4 text-center text-[13.5px] font-semibold text-muted">
             {t("endOfScreens")}
           </span>
