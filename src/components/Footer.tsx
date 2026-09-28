@@ -92,7 +92,7 @@ export default function Footer() {
         <div
           ref={giantRef}
           aria-hidden="true"
-          className="-mb-2 bg-linear-to-b from-[rgba(244,244,242,0.9)] to-[rgba(244,244,242,0.02)] bg-clip-text pb-2 text-center text-[clamp(56px,12.5vw,168px)] leading-[0.9] font-extrabold tracking-tighter whitespace-nowrap text-transparent select-none"
+          className="-mb-2 bg-linear-to-b from-[rgba(244,244,242,0.9)] to-[rgba(244,244,242,0.02)] bg-clip-text pb-2 text-center md:text-[clamp(56px,12.5vw,168px)] text-[clamp(42px,12.5vw,168px)] leading-[0.9] font-extrabold tracking-tighter whitespace-nowrap text-transparent select-none"
         >
           Armin Bakhshi
         </div>

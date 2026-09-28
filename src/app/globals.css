@@ -70,11 +70,11 @@ html.lenis body {
   }
 
   .btn {
-    @apply inline-flex cursor-pointer items-center gap-2 rounded-full border border-transparent px-6 py-[13px] text-[14.5px] font-semibold tracking-[-0.01em] whitespace-nowrap transition-all duration-300 active:scale-[0.97];
+    @apply inline-flex cursor-pointer items-center gap-2 rounded-full border border-transparent px-6 py-3.25 text-[14.5px] font-semibold tracking-[-0.01em] whitespace-nowrap transition-all duration-300 active:scale-[0.97];
   }
 
   .btn-sm {
-    @apply px-[18px] py-[9px] text-[13.5px];
+    @apply px-4.5 py-2.25 text-[13.5px];
   }
 
   .btn-primary {
@@ -90,7 +90,7 @@ html.lenis body {
   }
 
   .icon-btn {
-    @apply grid h-[38px] w-[38px] place-items-center rounded-full border border-black/[0.06] bg-white/70 shadow-[0_6px_14px_-8px_rgba(11,11,12,0.4)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-ink hover:text-white hover:shadow-[0_12px_22px_-10px_rgba(11,11,12,0.55)] [&>svg]:h-[17px] [&>svg]:w-[17px];
+    @apply grid h-9.5 w-9.5 place-items-center rounded-full border border-black/6 bg-white/70 shadow-[0_6px_14px_-8px_rgba(11,11,12,0.4)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-ink hover:text-white hover:shadow-[0_12px_22px_-10px_rgba(11,11,12,0.55)] [&>svg]:h-4.25 [&>svg]:w-4.25;
   }
 
   .pill {
@@ -98,19 +98,19 @@ html.lenis body {
   }
 
   .eyebrow {
-    @apply mb-[10px] flex items-center gap-[10px] text-[13px] font-bold tracking-[0.12em] text-faint uppercase before:inline-block before:h-[2px] before:w-6 before:rounded-sm before:bg-ink before:content-[''];
+    @apply mb-2.5 flex items-center gap-2.5 text-[13px] font-bold tracking-[0.12em] text-faint uppercase before:inline-block before:h-0.5 before:w-6 before:rounded-sm before:bg-ink before:content-[''];
   }
 
   .chip {
-    @apply rounded-full border border-line bg-surface px-[11px] py-[5px] text-[12px] font-semibold text-[#444444];
+    @apply rounded-full border border-line bg-surface px-2.75 py-1.25 text-[12px] font-semibold text-[#444444];
   }
 
   .skill-chip {
-    @apply inline-flex items-center gap-2 rounded-full border border-line bg-surface py-2 pr-[14px] pl-[10px] text-[13.5px] font-semibold text-[#2b2b29] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_18px_-8px_rgba(0,0,0,0.25)] [&>svg]:h-[17px] [&>svg]:w-[17px];
+    @apply inline-flex items-center gap-2 rounded-full border border-line bg-surface py-2 pr-3.5 pl-2.5 text-[13.5px] font-semibold text-[#2b2b29] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_18px_-8px_rgba(0,0,0,0.25)] [&>svg]:h-4.25 [&>svg]:w-4.25;
   }
 
   .skill-chip-sm {
-    @apply gap-1.5 py-[5px] pr-[11px] pl-2 text-[12px] [&>svg]:h-[14px] [&>svg]:w-[14px];
+    @apply gap-1.5 py-1.25 pr-2.75 pl-2 text-[12px] [&>svg]:h-3.5 [&>svg]:w-3.5;
   }
 
   .skill-fallback {
@@ -122,15 +122,15 @@ html.lenis body {
   }
 
   .year-tag {
-    @apply rounded-full border border-white/90 bg-white/85 px-[14px] py-[6px] text-[12.5px] font-bold text-[#111111] backdrop-blur-md;
+    @apply rounded-full border border-white/90 bg-white/85 px-3.5 py-1.5 text-[12.5px] font-bold text-[#111111] backdrop-blur-md;
   }
 
   .exp-period {
-    @apply rounded-full bg-surface-2 px-[15px] py-[7px] text-[13px] font-bold whitespace-nowrap;
+    @apply rounded-full bg-surface-2 px-3.75 py-1.75 text-[13px] font-bold whitespace-nowrap;
   }
 
   .link-more {
-    @apply inline-flex shrink-0 items-center gap-1.5 rounded-full border border-line bg-surface px-5 py-[10px] text-[14.5px] font-bold shadow-[0_10px_22px_-14px_rgba(11,11,12,0.35)] transition-all duration-300 hover:border-ink hover:bg-ink hover:text-white hover:shadow-[0_16px_30px_-12px_rgba(11,11,12,0.6)];
+    @apply inline-flex shrink-0 items-center gap-1.5 rounded-full border border-line bg-surface px-5 py-2.5 text-[14.5px] font-bold shadow-[0_10px_22px_-14px_rgba(11,11,12,0.35)] transition-all duration-300 hover:border-ink hover:bg-ink hover:text-white hover:shadow-[0_16px_30px_-12px_rgba(11,11,12,0.6)];
   }
 
   /* Frosted-glass header pill */

@@ -48,10 +48,10 @@ export default function StickySection({
       className="grid items-start gap-2 md:grid-cols-[230px_1fr] md:gap-[clamp(24px,4vw,56px)]"
     >
       <div className="self-stretch">
-        <div className="static pb-0 md:sticky md:top-[108px] md:pb-6">
+        <div className="static pb-0 md:sticky md:top-27 md:pb-6">
           <span className="mb-3 inline-flex items-center gap-2 text-[13px] font-extrabold tracking-[0.14em] text-faint">
             <span
-              className={`h-[9px] w-[9px] rounded-full border-[1.5px] transition-all duration-300 ${
+              className={`h-2.25 w-2.25 rounded-full border-[1.5px] transition-all duration-300 ${
                 active ? "border-ink bg-ink" : "border-faint"
               }`}
             />
