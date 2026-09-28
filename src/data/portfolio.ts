@@ -46,7 +46,7 @@ export const projects: Project[] = [
       "Tailwind",
     ],
     role: "Frontend Developer · Web3 Integration",
-    timeline: "Jan 2025 — Sep 2025",
+    timeline: "2025",
     liveUrl: "https://x.com/PixelRaceClub",
     repoUrl: "#",
     hue: 8,
