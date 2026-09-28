@@ -95,7 +95,7 @@ export default function Home() {
                 Selected works
               </h2>
               <p className="mt-3 max-w-140 text-[16.5px] leading-relaxed text-muted">
-                A few projects across Web3, CMS, end-to-end and B2B products.
+                Real client work across Web3 gaming, DeFi, CMS and mobile.
                 Each has its own detail page.
               </p>
             </div>

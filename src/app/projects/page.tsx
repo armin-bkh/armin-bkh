@@ -19,10 +19,10 @@ export default function ProjectsPage() {
         </Reveal>
         <Reveal delay={0.1}>
           <p className="mt-3.5 max-w-160 text-[17px] leading-[1.65] text-muted">
-            Everything here shipped to real users — Web3 dashboards, headless
-            CMS platforms, end-to-end commerce and B2B tools. Built with
-            TypeScript, React and Next.js, integrated with backend services.
-            Open any card for the full case study.
+            Everything here shipped to real users — a Web3 game, a trading
+            app, a CMS-driven site and a cross-platform climate app. Built
+            with TypeScript, React and Next.js. Open any card for the full
+            case study.
           </p>
         </Reveal>
       </section>

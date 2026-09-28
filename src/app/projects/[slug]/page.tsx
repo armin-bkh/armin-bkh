@@ -85,7 +85,23 @@ export default async function ProjectDetail({
                   Links
                 </span>
                 <b className="text-[15px]">
-                  {project.liveUrl !== "#" && (
+                  {project.links && project.links.length > 0 ? (
+                    project.links.map((l, i) => (
+                      <span key={l.href}>
+                        {i > 0 && " · "}
+                        <a
+                          href={l.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="underline underline-offset-2"
+                        >
+                          {l.label} ↗
+                        </a>
+                      </span>
+                    ))
+                  ) : (
+                    <>
+                      {project.liveUrl !== "#" && (
                     <a
                       href={project.liveUrl}
                       target="_blank"
@@ -125,6 +141,8 @@ export default async function ProjectDetail({
                     ) : (
                       <span className="font-normal opacity-70">Private</span>
                     )
+                  )}
+                    </>
                   )}
                 </b>
               </div>
