@@ -4,7 +4,7 @@ import ProjectCard from "@/components/ProjectCard";
 
 export const metadata = {
   title: "Projects — Armin Bakhshi",
-  description: "Web3, CMS, E2E and B2B projects by Armin Bakhshi.",
+  description: "Web3, DeFi, backend-driven and mobile projects by Armin Bakhshi.",
 };
 
 export default function ProjectsPage() {
@@ -20,7 +20,7 @@ export default function ProjectsPage() {
         <Reveal delay={0.1}>
           <p className="mt-3.5 max-w-160 text-[17px] leading-[1.65] text-muted">
             Everything here shipped to real users — a Web3 game, a trading
-            app, a CMS-driven site and a cross-platform climate app. Built
+            app, a backend-driven site and a cross-platform climate app. Built
             with TypeScript, React and Next.js. Open any card for the full
             case study.
           </p>

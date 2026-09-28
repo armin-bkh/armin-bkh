@@ -37,7 +37,7 @@ export default function ResumePage() {
               </h2>
               <p className="mt-1.5 mb-7 text-[15.5px] text-muted">
                 Frontend developer, deep in TypeScript, React and Next.js — with
-                backend-service experience across Web3, CMS, E2E and B2B
+                backend-service experience across Web3, DeFi and mobile
                 products.
               </p>
               <div className="flex flex-wrap gap-x-7 gap-y-2.5 text-sm text-muted">

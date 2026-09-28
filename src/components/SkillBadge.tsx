@@ -34,6 +34,7 @@ import {
   SiVercel,
   SiSanity,
   SiReacthookform,
+  SiNestjs,
 } from "react-icons/si";
 import {
   TbApi,
@@ -61,6 +62,7 @@ const MAP: Record<string, SkillIcon[]> = {
   TypeScript: [{ C: SiTypescript, color: "#3178C6" }],
   React: [{ C: SiReact, color: "#61DAFB" }],
   "Next.js": [{ C: SiNextdotjs, color: "#000000" }],
+  NestJs: [{ C: SiNestjs, color: "#E33332" }],
   "HTML & CSS": [
     { C: SiHtml5, color: "#E34F26" },
     { C: SiCss, color: "#1572B6" },
@@ -128,7 +130,10 @@ const FALLBACK_COLOR: Record<string, string> = {
 };
 
 function initials(name: string) {
-  const words = name.replace(/[^a-zA-Z0-9 ]/g, "").split(" ").filter(Boolean);
+  const words = name
+    .replace(/[^a-zA-Z0-9 ]/g, "")
+    .split(" ")
+    .filter(Boolean);
   return ((words[0]?.[0] ?? "?") + (words[1]?.[0] ?? "")).toUpperCase();
 }
 

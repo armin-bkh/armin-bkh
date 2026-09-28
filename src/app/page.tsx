@@ -75,7 +75,7 @@ export default function Home() {
             </span>
             <span>
               Focus:{" "}
-              <b className="font-bold text-ink">Web3 · CMS · B2C · B2B</b>
+              <b className="font-bold text-ink">Web3 · DeFi · Mobile · Web</b>
             </span>
             <span>
               Stack:{" "}
@@ -95,7 +95,8 @@ export default function Home() {
                 Selected works
               </h2>
               <p className="mt-3 max-w-140 text-[16.5px] leading-relaxed text-muted">
-                Real client work across Web3 gaming, DeFi, CMS and mobile.
+                Real client work across Web3 gaming, DeFi, backend-driven web
+                and mobile.
                 Each has its own detail page.
               </p>
             </div>
@@ -118,12 +119,11 @@ export default function Home() {
             <div className="max-w-140">
               <div className="eyebrow">Currently</div>
               <h2 className="text-[26px] tracking-[-0.03em]">
-                Senior Frontend Developer @ Novacart
+                Freelance Frontend Developer
               </h2>
               <p className="mt-3 max-w-140 text-[16.5px] leading-relaxed text-muted">
-                Leading frontend for a B2B ordering platform — design system,
-                quote-to-order flows and backend integrations. Open to new roles
-                and freelance.
+                Building professional Web3, backend-driven and cross-platform
+                projects for clients — currently open for new work.
               </p>
             </div>
             <div className="flex flex-wrap gap-2.5">

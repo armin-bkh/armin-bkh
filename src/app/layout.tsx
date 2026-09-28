@@ -42,7 +42,7 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "Armin Bakhshi — Frontend Developer",
   description:
-    "Frontend developer specializing in TypeScript, React and Next.js. Web3, CMS, E2E and B2B products.",
+    "Frontend developer specializing in TypeScript, React and Next.js. Web3, DeFi, backend-driven and mobile products.",
 };
 
 export default function RootLayout({

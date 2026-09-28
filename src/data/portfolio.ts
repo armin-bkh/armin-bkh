@@ -4,9 +4,9 @@ export const profile = {
   role: "Frontend Developer",
   stack: "TypeScript · React · Next.js",
   tagline:
-    "I build fast, accessible web apps with TypeScript, React and Next.js — from Web3 dashboards to CMS, E2E and B2B products.",
+    "I build fast, accessible web apps with TypeScript, React and Next.js — from Web3 games and trading apps to backend-driven platforms.",
   summary:
-    "Frontend developer with deep expertise in TypeScript, React and Next.js. I have hands-on experience integrating backend services and shipping Web3, CMS, end-to-end and B2B products used by real customers.",
+    "Frontend developer with deep expertise in TypeScript, React and Next.js. I have hands-on experience integrating backend services and shipping Web3, DeFi and backend-driven products used by real customers.",
   email: "arminbkh0921@gmail.com",
   location: "Remote · Worldwide",
   avatar: "/me.jpeg",
@@ -127,15 +127,15 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "sunday-solar-cms",
-    title: "Sunday Solar — Headless CMS Landing",
+    slug: "sunday-solar-landing",
+    title: "Sunday Solar — Backend-Driven Landing",
     year: "2025",
-    category: "CMS · B2C",
+    category: "Backend · B2C",
     tagline:
       "A fully backend-driven landing page for a solar installer — every text, image and section served from Strapi with PostgreSQL, zero static copy...",
     description: [
       "Sunday Solar designs and installs intelligent, integrated systems of solar panels, heat pumps and battery storage for maximum energy independence and minimal energy costs — from initial consultation and planning through to turnkey installation. The marketing site is a professional landing page where literally every piece of content comes from the backend.",
-      "I built the Next.js frontend on top of a Strapi + PostgreSQL backend: dynamic landing sections, rich-text blocks via the Strapi Blocks renderer, multilingual content with next-intl, and validated lead/quote forms with reCAPTCHA and Maps integration. Not a single text in the frontend is static — everything resolves through typed CMS queries.",
+      "I built the Next.js frontend on top of a Strapi + PostgreSQL backend: dynamic landing sections, rich-text blocks via the Strapi Blocks renderer, multilingual content with next-intl, and validated lead/quote forms with reCAPTCHA and Maps integration. Not a single text in the frontend is static — everything resolves through typed API queries.",
       "Content editors publish and translate pages without touching code, while the frontend stays fast with lazy-loaded scripts and media, image optimization and strict TypeScript end to end.",
     ],
     stack: [
@@ -229,56 +229,45 @@ export type Experience = {
 
 export const experience: Experience[] = [
   {
-    company: "Novacart · B2B Commerce",
-    role: "Senior Frontend Developer",
-    period: "2023 — Present",
+    company: "Freelance",
+    role: "Frontend Developer",
+    period: "2024 — Present",
     location: "Remote",
     summary:
-      "Lead frontend for a B2B ordering platform serving distributors and retailers.",
+      "Professional client projects across Web3, DeFi, backend-driven web and mobile — currently open for new work.",
     bullets: [
-      "Own the Next.js + TypeScript storefront and seller portal used by 2,000+ business buyers.",
-      "Rebuilt quote-to-order into a guided flow; increased quote acceptance by 24%.",
-      "Introduced design-system components, visual regression tests and a 200ms interaction budget.",
-      "Integrate backend services for pricing, invoicing, payments and notifications with optimistic UI.",
+      "Ship production frontends for clients needing senior-level execution.",
+      "Own projects end to end: UI implementation, Web3 integration and backend service wiring.",
+      "Available for full-project builds, from first screen to deployed release.",
     ],
   },
   {
-    company: "Chainlabs · Web3",
+    company: "Planit · Web3",
     role: "Frontend Developer",
-    period: "2022 — 2023",
+    period: "2025",
     location: "Remote",
-    summary: "Built wallet-facing Web3 products across Ethereum and L2s.",
-    bullets: [
-      "Shipped multi-wallet dashboards and NFT minting flows with wagmi, viem and ethers.js.",
-      "Cut mobile JS payload by 40% via route-level code splitting and edge media.",
-      "Built websocket-driven auction UIs with synced countdowns and outbid alerts.",
-      "Added Vitest + Playwright coverage that caught regressions before mainnet releases.",
-    ],
-  },
-  {
-    company: "Pagestudio · CMS",
-    role: "Frontend Developer",
-    period: "2021 — 2022",
-    location: "Hybrid",
-    summary: "Worked on a headless CMS studio for marketing teams.",
-    bullets: [
-      "Built drag-and-drop page builder blocks with undo/redo and live draft preview.",
-      "Generated end-to-end TypeScript types from content schemas with Zod.",
-      "Worked with backend engineers on webhook revalidation and preview infrastructure.",
-      "Raised Lighthouse scores above 95 across all studio-generated sites.",
-    ],
-  },
-  {
-    company: "Freelance & Agency",
-    role: "Junior Web Developer",
-    period: "2020 — 2021",
-    location: "On-site",
     summary:
-      "Delivered marketing sites, shops and dashboards for agency clients.",
+      "Frontend developer for Web3 and smart-contract projects across gaming, trading and more.",
     bullets: [
-      "Shipped 12+ responsive sites in React and Next.js for SMB and startup clients.",
-      "Integrated REST/GraphQL backends, auth flows and CMS content.",
-      "Set up analytics, SEO basics and E2E smoke tests with Cypress.",
+      "Implemented UI for Web3 projects across gaming, trading and other categories.",
+      "Integrated Unity WebGL builds with React, wired to wallet sessions.",
+      "Built customer dashboards, landing pages and live cryptocurrency charts.",
+      "Added GSAP and Framer Motion animation throughout the products.",
+      "Set up multichain Web3 configuration across networks and contracts.",
+    ],
+  },
+  {
+    company: "Treejer · Climate Finance",
+    role: "Frontend Developer · Frontend Lead",
+    period: "2022 — 2024",
+    location: "Remote",
+    summary:
+      "Frontend developer on the Ranger app, leading the frontend team from 2023.",
+    bullets: [
+      "Implemented UI for the cross-platform Ranger app.",
+      "Launched Android and web apps from one codebase with React Native and Expo.",
+      "Integrated Web3 and smart contracts with multichain configuration.",
+      "Wired APIs with Redux Saga for predictable data flow.",
     ],
   },
 ];
@@ -299,39 +288,15 @@ export const skills: { area: string; items: string[] }[] = [
   },
   {
     area: "Backend",
-    items: [
-      "Node.js",
-      "tRPC",
-      "REST",
-      "GraphQL",
-      "PostgreSQL",
-      "Prisma",
-      "Server Actions",
-      "Webhooks",
-    ],
+    items: ["Node.js", "NestJs", "REST"],
   },
   {
     area: "Data",
-    items: [
-      "TanStack Query",
-      "SWR",
-      "Zod",
-      "Recharts",
-      "ECharts",
-      "Virtualization",
-      "ISR & Caching",
-    ],
+    items: ["TanStack Query", "SWR", "Zod", "Recharts", "ISR & Caching"],
   },
   {
     area: "Auth",
-    items: [
-      "NextAuth.js",
-      "OAuth 2.0",
-      "JWT",
-      "RBAC",
-      "Session handling",
-      "Clerk",
-    ],
+    items: ["NextAuth.js", "OAuth 2.0", "JWT", "Session handling"],
   },
   {
     area: "Web3",
@@ -339,10 +304,9 @@ export const skills: { area: string; items: string[] }[] = [
       "wagmi",
       "viem",
       "ethers.js",
-      "WalletConnect",
       "ENS",
       "IPFS",
-      "Smart-contract reads",
+      "Smart-contract reads & writes",
     ],
   },
   {
@@ -360,18 +324,11 @@ export const skills: { area: string; items: string[] }[] = [
 
 export const education = [
   {
-    school: "B.Sc. Computer Engineering",
-    org: "University — placeholder",
-    period: "2016 — 2020",
+    school: "B.Sc. Software Engineering",
+    org: "Undergraduate studies",
+    period: "2023 — Present",
     detail:
-      "Focus on software engineering, databases and computer networks. Replace with your real degree.",
-  },
-  {
-    school: "Meta Front-End Developer Professional Certificate",
-    org: "Coursera — placeholder",
-    period: "2021",
-    detail:
-      "Advanced React, testing and UI principles. Replace with your real certificates.",
+      "Software engineering fundamentals — data structures, databases and networks — alongside professional frontend work.",
   },
 ];
 
