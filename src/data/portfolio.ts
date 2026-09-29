@@ -229,14 +229,7 @@ export const skills: { area: string; items: string[] }[] = [
   },
   {
     area: "Testing",
-    items: [
-      "Vitest",
-      "Playwright",
-      "Cypress",
-      "Testing Library",
-      "E2E pipelines",
-      "Visual regression",
-    ],
+    items: ["Vitest", "Playwright", "Testing Library"],
   },
 ];
 
