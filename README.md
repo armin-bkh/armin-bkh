@@ -27,6 +27,9 @@ Open [http://localhost:3000](http://localhost:3000).
 | `npm run build` | Production build + prerender |
 | `npm run start` | Serve the production build |
 | `npm run lint` | Run ESLint                |
+| `npm test` | Run unit tests (Vitest)     |
+| `npm run test:coverage` | Unit tests + HTML report in `coverage/` |
+| `npm run test:e2e` | Run UI tests (Playwright, Chromium) |
 
 ## Adding a project
 

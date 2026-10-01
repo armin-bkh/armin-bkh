@@ -7,7 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const isVideoSrc = (src: string) => /\.(mp4|webm|mov)(\?|$)/i.test(src);
+export const isVideoSrc = (src: string) => /\.(mp4|webm|mov)(\?|$)/i.test(src);
 
 type HorizontalGalleryProps = {
   images: string[];

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { projects } from "@/data/portfolio";
+import { heroGradient } from "@/lib/cover";
 import { siteUrl } from "@/lib/site";
 import Reveal from "@/components/Reveal";
 import SkillBadge from "@/components/SkillBadge";
@@ -71,7 +72,7 @@ export default async function ProjectDetail({
           <div
             className="relative overflow-hidden rounded-[28px] p-[clamp(28px,5vw,56px)] text-white"
             style={{
-              background: `linear-gradient(135deg, hsl(${project.hue} 45% 18%) 0%, hsl(${project.hue} 55% 36%) 55%, hsl(${(project.hue + 40) % 360} 65% 48%) 100%)`,
+              background: heroGradient(project.hue),
             }}
           >
             {project.cover && (
@@ -86,7 +87,7 @@ export default async function ProjectDetail({
                 <div
                   className="absolute inset-0 opacity-40"
                   style={{
-                    background: `linear-gradient(135deg, hsl(${project.hue} 45% 18%) 0%, hsl(${project.hue} 55% 36%) 55%, hsl(${(project.hue + 40) % 360} 65% 48%) 100%)`,
+                    background: heroGradient(project.hue),
                   }}
                 />
               </>

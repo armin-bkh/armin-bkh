@@ -8,6 +8,11 @@ import Lenis from "lenis";
 
 gsap.registerPlugin(ScrollTrigger);
 
+/** Expo-style easing driving the Lenis smooth scroll. */
+export function smoothEasing(t: number): number {
+  return Math.min(1, 1.001 - Math.pow(2, -10 * t));
+}
+
 export default function SmoothScroll() {
   const pathname = usePathname();
   const lenisRef = useRef<Lenis | null>(null);
@@ -15,7 +20,7 @@ export default function SmoothScroll() {
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.15,
-      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      easing: smoothEasing,
       smoothWheel: true,
     });
     lenisRef.current = lenis;

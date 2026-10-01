@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import type { Project } from "@/data/portfolio";
+import { cardGradient } from "@/lib/cover";
 import Reveal from "./Reveal";
 import SkillBadge from "./SkillBadge";
 
@@ -21,7 +22,7 @@ export default async function ProjectCard({
             project.cover
               ? undefined
               : {
-                  background: `linear-gradient(135deg, hsl(${project.hue} 45% 22%) 0%, hsl(${project.hue} 60% 42%) 55%, hsl(${(project.hue + 40) % 360} 70% 55%) 100%)`,
+                  background: cardGradient(project.hue),
                 }
           }
         >
@@ -36,7 +37,7 @@ export default async function ProjectCard({
               <div
                 className="absolute inset-0 opacity-40"
                 style={{
-                  background: `linear-gradient(135deg, hsl(${project.hue} 45% 22%) 0%, hsl(${project.hue} 60% 42%) 55%, hsl(${(project.hue + 40) % 360} 70% 55%) 100%)`,
+                  background: cardGradient(project.hue),
                 }}
               />
               <div className="cover-grid absolute inset-0" />

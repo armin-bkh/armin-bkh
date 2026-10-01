@@ -24,7 +24,6 @@ export default async function Image() {
         fontFamily: "system-ui, sans-serif",
       }}
     >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={`${siteUrl}/me.jpeg`}
         width={230}
